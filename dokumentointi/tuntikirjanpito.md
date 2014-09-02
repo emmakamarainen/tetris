@@ -1,5 +1,7 @@
 
+
 ##**Tuntikirjanpito**
 
-|Pvm |Aika |Aihe|
-|2.9.|2 h |Alkuasetuksia, githubbiin tutustumista|
+| Pvm | Aika | Aihe  |
+| --- |:----:| -----:|
+| 2.9.| 2 h  | Alkuasetuksia, githubbiin tutustumista|
