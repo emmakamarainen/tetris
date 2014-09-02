@@ -1,7 +1,10 @@
-**Aihemmaarittely**
+**Aihem채채rittely**
 
-*Aihe:* Tetris
-	Reaaliaikainen peli, jossa yl꼑aalta
+Aihe: Tetris
+	Reaaliaikainen peli, jossa ylh채채lt채 laskeutuu erimuotoisia palikoita. K채ytt채j채n tarkoitus on valintansa mukaan
+	sijoittaa palikat ruudun pohjalle, ja kun tulee t채ysi rivi, niin rivi h채vi채채 ja pisteet nousevat.  Peli loppuu, 
+	kun jokin palikka tulee ruudun ulkopuolelle.
+
+K채ytt채j채t: Pelaaja
 
 
-*K꼢tt꼓꼝:*
