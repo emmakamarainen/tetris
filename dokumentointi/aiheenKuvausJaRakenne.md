@@ -11,8 +11,7 @@ Reaaliaikainen peli, jossa ylhäältä laskeutuu erimuotoisia palikoita. Käytt�
  <li>Pelaaja voi kääntää palikkaa</li>
  <li>Pelaaja voi vaihtaa palikan paikkaa sivusuunnassa</li>
  <ul>
- <li>onnistuu, jos palikka on yhä liikkeellä</li>
- </ul>
+ <li>onnistuu, jos palikka on yhä liikkeellä</li> </ul>
  <li>Pelaaja voi pysäyttää pelin (?)</li>
  <li>Pelaaja voi nopeuttaa palikan laskeutumisnopeutta(?)</li>
  </ul>
