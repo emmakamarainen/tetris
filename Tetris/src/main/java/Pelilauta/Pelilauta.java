@@ -14,7 +14,7 @@ public class Pelilauta {
         if (x >= 10 || x < 0 || y >= 10 || y < 0) {
             try {
                 lauta[x][y] = 1;
-            } catch (Exception e) {
+            } catch (Exception IndexOutOfBoundaries) {
             }
         }
         lauta[x][y] = 1;

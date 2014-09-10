@@ -41,7 +41,7 @@ public class PelilautaTest {
 //    @Test
 //    public void eiLisaaPalaaRuudunUlkopuolelle() {
 //        pelilauta.asetaPalaRuutuun(-1, 2);
-//        assertEquals(null?, pelilauta.onkoRuudussaPala(-1, 2));
+//        assertEquals("IndexOutOfBoundaries", pelilauta.onkoRuudussaPala(-1, 2));
 //    }
     
 
