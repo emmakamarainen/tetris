@@ -37,7 +37,7 @@ public class Pelilauta {
     }
 
     /**
-     * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä.
+     * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä. KESKEN
      */
     public ArrayList<Integer> TaysienRivienLista() {
         ArrayList<Integer> yksirivitaysi = new ArrayList<>();
