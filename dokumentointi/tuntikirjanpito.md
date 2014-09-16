@@ -10,4 +10,5 @@
 | 8.9.| 2 h  | Kertailua |
 | 9.9.| 3 h  | Olin pajassa, palikoiden tekoa|
 | 10.9.| 2 h | Pelilaudan aloitus, testien tekoa|
-|11.9.| 4h| Pelilaudassa jumittamista, testien tekoa|
+|11.9.| 4 h | Pelilaudassa jumittamista, testien tekoa|
+|16.9.|2 h | Uusi pakkaus, grafiikantekoa|
