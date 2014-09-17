@@ -10,8 +10,7 @@ public class Tetris {
     }
     
     public void kaynnista(){
-        Pelilauta lauta =new Pelilauta();
-        lauta.tulosta();
+        Pelilauta lauta =new Pelilauta();        
     }
     
     public void kaannaOikealle(){   

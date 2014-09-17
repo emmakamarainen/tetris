@@ -37,27 +37,25 @@ public class Pelilauta {
     }
 
     /**
-     * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä. KESKEN
+     * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä.
      */
-    public ArrayList<Integer> TaysienRivienLista() {
-        ArrayList<Integer> yksirivitaysi = new ArrayList<>();
-        ArrayList<Integer> taydetrivit = new ArrayList<>();
-        int riviluku = 0;
+    public ArrayList<Integer> täysienRivienLista() {
+        ArrayList<Integer> Rivit = new ArrayList<>();
+        int nro = 0;
         for (int rivi = 0; rivi < lauta.length; rivi++) {
-            for (int sarake = 0; sarake < lauta[rivi].length; sarake++) {
-                if (lauta[rivi][sarake] == 1) {
-                    yksirivitaysi.add(1);                   
-                } else {
-                    yksirivitaysi.add(0);                
+            boolean rivitaysi = true;
+            for (int sarake = 0; sarake < lauta.length; sarake++) {
+                if (lauta[sarake][rivi] == 0) {
+                    rivitaysi = false;
+                    break;
                 }
             }
-           if(listanKaikkiAlkiotSamat(yksirivitaysi)==true){
-               taydetrivit.add(riviluku);
-           }
-            riviluku++;
+            if (rivitaysi==true) {
+                Rivit.add(nro, rivi);
+                nro++;
+            }
         }
-//        System.out.println(taydetrivit.size());
-        return taydetrivit;
+        return Rivit;
     }
 
     /**
