@@ -39,7 +39,7 @@ public class Pelilauta {
     /**
      * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä.
      */
-    public ArrayList<Integer> täysienRivienLista() {
+    public ArrayList<Integer> taysienRivienLista() {
         ArrayList<Integer> Rivit = new ArrayList<>();
         int nro = 0;
         for (int rivi = 0; rivi < lauta.length; rivi++) {
@@ -84,7 +84,7 @@ public class Pelilauta {
      * Poistaa kaikki täydet rivit.
      */
     public void poistaTaydetRivit() {
-        for (int rivi : TaysienRivienLista()) {
+        for (int rivi : taysienRivienLista()) {
             poistaRivi(rivi);
         }
     }
