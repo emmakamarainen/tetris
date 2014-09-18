@@ -1,5 +1,5 @@
 
-package palikat;
+package palikkapeli.palikat;
 
 public class SPalikka {
     private Pala pala1;

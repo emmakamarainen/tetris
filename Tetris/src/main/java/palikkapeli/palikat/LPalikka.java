@@ -1,6 +1,6 @@
 
 
-package palikat;
+package palikkapeli.palikat;
 
 
 public class LPalikka {
