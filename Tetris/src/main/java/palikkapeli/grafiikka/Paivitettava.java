@@ -1,4 +1,4 @@
-package Grafiikka;
+package palikkapeli.grafiikka;
 
 public interface Paivitettava {
 

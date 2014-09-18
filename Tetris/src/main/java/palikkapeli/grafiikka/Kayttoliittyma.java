@@ -1,11 +1,11 @@
-package Grafiikka;
+package palikkapeli.grafiikka;
 
-import Pelilogiikka.Tetris;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import palikkapeli.pelilogiikka.Tetris;
 
 public class Kayttoliittyma implements Runnable {
 

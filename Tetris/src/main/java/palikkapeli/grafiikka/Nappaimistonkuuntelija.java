@@ -1,8 +1,8 @@
-package Grafiikka;
+package palikkapeli.grafiikka;
 
-import Pelilogiikka.Tetris;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import palikkapeli.pelilogiikka.Tetris;
 
 
 public class Nappaimistonkuuntelija implements KeyListener {
