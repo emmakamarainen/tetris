@@ -18,7 +18,6 @@ public class Pelilauta {
     public void asetaPalaRuutuun(int x, int y) {
         if (onkoRuudussaPala(x, y) == false) {
             lauta[x][y] = 1;
-//            System.out.println("OK");
         }
     }
 
@@ -42,33 +41,21 @@ public class Pelilauta {
     public ArrayList<Integer> taysienRivienLista() {
         ArrayList<Integer> Rivit = new ArrayList<>();
         int nro = 0;
-        for (int rivi = 0; rivi < lauta.length; rivi++) {
+        for (int rivi = 0; rivi < 20; rivi++) {
             boolean rivitaysi = true;
-            for (int sarake = 0; sarake < lauta.length; sarake++) {
+            for (int sarake = 0; sarake < 10; sarake++) {
                 if (lauta[sarake][rivi] == 0) {
                     rivitaysi = false;
                     break;
                 }
             }
-            if (rivitaysi==true) {
+            if (rivitaysi == true) {
                 Rivit.add(nro, rivi);
                 nro++;
             }
         }
         return Rivit;
-    }
-
-    /**
-     * Apumetodi edelliseen, tarkistaa onko listalla olevat alkiot samat.
-     */
-    public boolean listanKaikkiAlkiotSamat(ArrayList<Integer> lista) {
-        for (int alkio : lista) {
-            if (alkio == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+    }   
 
     /**
      * Poistaa yhden rivin.
