@@ -19,4 +19,9 @@ public class Tetris {
     public void kaannaVasemmalle(){    
     }
     
+    public void liikuOikealle(){   
+    }
+    
+    public void liikuVasemmalle(){    
+    }
 }
