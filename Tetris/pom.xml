@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>palikkapeli</groupId>
-  <artifactId>Tetris</artifactId>
+  <artifactId>palikkapeli</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -50,16 +50,6 @@
     <groupId>org.pitest</groupId>
     <artifactId>pitest-maven</artifactId>
     <version>0.30</version>
-    <configuration>
-        <targetClasses>
-            <param>tetris.*</param>
-            <param>tetris.*</param>
-        </targetClasses>
-        <targetTests>
-            <param>tetris.*</param>
-            <param>tetris.*</param>
-        </targetTests>
-    </configuration>
 </plugin>
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>

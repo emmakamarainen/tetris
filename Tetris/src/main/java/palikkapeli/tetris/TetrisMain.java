@@ -1,7 +1,6 @@
 package palikkapeli.tetris;
 
-import Pelilauta.Pelilauta;
-import Pelilogiikka.Tetris;
+import palikkapeli.pelilogiikka.Tetris;
 
 public class TetrisMain {
 

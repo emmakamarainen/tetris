@@ -1,5 +1,6 @@
-package Pelilauta;
+package palikkapeli.pelilauta;
 
+import palikkapeli.pelilauta.Pelilauta;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -68,18 +69,18 @@ public class PelilautaTest {
         assertEquals(false, pelilauta.listanKaikkiAlkiotSamat(lista));
     }
 
-////    @Test
-////    public void josLaudallaTaysiRiviLisaaSenListaan() {
-////        for (int i = 0; i < 10; i++) {
-////            pelilauta.asetaPalaRuutuun(1, i);
-////        }
-////        for (int i = 0; i < 10; i++) {
-////            pelilauta.asetaPalaRuutuun(2, i);
-////        }
-////        pelilauta.TaysienRivienLista();
-////        int rivilkm = pelilauta.TaysienRivienLista().size();
-////        assertEquals(1, rivilkm);
-////    }
+//    @Test
+//    public void josLaudallaTaysiRiviLisaaSenListaan() {
+//        for (int i = 0; i < 10; i++) {
+//            pelilauta.asetaPalaRuutuun(1, i);
+//        }
+//        for (int i = 0; i < 10; i++) {
+//            pelilauta.asetaPalaRuutuun(2, i);
+//        }
+//        pelilauta.TaysienRivienLista();
+//        int rivilkm = pelilauta.TaysienRivienLista().size();
+//        assertEquals(1, rivilkm);
+//    }
     
     @Test
     public void riviLisaantyyOikein() {

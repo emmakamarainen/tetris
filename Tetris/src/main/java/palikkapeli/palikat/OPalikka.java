@@ -1,4 +1,4 @@
-package palikat;
+package palikkapeli.palikat;
 
 public class OPalikka {
 

@@ -1,5 +1,5 @@
 
-package palikat;
+package palikkapeli.palikat;
 
 
 public enum Vari {

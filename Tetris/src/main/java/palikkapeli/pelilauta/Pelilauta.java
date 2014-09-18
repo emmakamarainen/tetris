@@ -1,4 +1,4 @@
-package Pelilauta;
+package palikkapeli.pelilauta;
 
 import java.util.ArrayList;
 
