@@ -2,13 +2,13 @@ package palikkapeli.palikat;
 
 public class Pala {
 
-    private final int pituus = 50;
-    private final int leveys = 50;
+    private final int pituus = 10;
+    private final int leveys = 10;
     private int x;
     private int y;
     private Vari vari;
 
-    public Pala(int x, int y, Vari vari) {
+    public Pala(int x, int y) {
         this.x = x;
         this.y = y;
         this.vari = vari;

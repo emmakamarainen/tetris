@@ -1,5 +1,6 @@
 package palikkapeli.grafiikka;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -21,15 +22,15 @@ public class Kayttoliittyma implements Runnable {
         Piirtoalusta tetrisAlusta = new Piirtoalusta(this.tetris);
         this.piirtoalusta = tetrisAlusta;
         container.add(tetrisAlusta);
-        frame.addKeyListener(new Nappaimistonkuuntelija(tetris, piirtoalusta));      
+        frame.addKeyListener(new Nappaimistonkuuntelija(tetris, piirtoalusta));
     }
 
     @Override
     public void run() {
-        frame = new JFrame();
-        int leveys = 400;
-        int korkeus = 500;
-        frame.setPreferredSize(new Dimension(leveys, korkeus));
+        frame = new JFrame("Palikkapeli");
+        int leveys = 500;
+        int korkeus = 600;
+        frame.setPreferredSize(new Dimension(leveys,korkeus));      
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setUndecorated(true);
         luoKomponentit(frame.getContentPane());
@@ -39,5 +40,9 @@ public class Kayttoliittyma implements Runnable {
 
     public Frame getFrame() {
         return frame;
+    }
+
+    public Paivitettava getPaivitettava() {
+        return piirtoalusta;
     }
 }

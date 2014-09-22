@@ -24,7 +24,7 @@ public class PalaTest {
 
     @Before
     public void setUp() {
-        this.pala = new Pala(5, 5, Vari.GREEN);
+        this.pala = new Pala(5, 5);
     }
 
     @After
@@ -43,13 +43,13 @@ public class PalaTest {
     
     @Test
     public void PalaOsuuPalauttaaTrueJosOsuu(){
-        Pala pala2 = new Pala(5,5,Vari.BLUE);
+        Pala pala2 = new Pala(5,5);
         assertEquals(true, pala.PalaOsuu(pala2));
     }
     
     @Test
     public void PalaOsuuPalauttaaFalseJosEiOsu(){
-        Pala pala2 = new Pala(6,5,Vari.BLUE);
+        Pala pala2 = new Pala(6,5);
         assertEquals(false, pala.PalaOsuu(pala2));
     }
 }

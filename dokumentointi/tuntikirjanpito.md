@@ -15,3 +15,4 @@
 | 18.9.| 3 h | Pit-testin korjaus (pajassa), taysien rivien metodin 
 korjaus|
 | 18.9. | 2 h | Palikoiden miettimista|
+|22.9. | 3 h | Palikat uusiksi, jumitusta|
