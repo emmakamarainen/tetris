@@ -16,5 +16,6 @@
 korjaus|
 | 18.9. | 2 h | Palikoiden miettimista|
 | 22.9. | 3 h | Palikat uusiksi, jumitusta|
-| 23.9. | 0,5h | Palikat toimii (pajassa) ja varit lisatty |
+| 23.9. | 1,5h | Palikat toimii (pajassa) ja varit lisatty, 
+palikanpiirtoa |
 

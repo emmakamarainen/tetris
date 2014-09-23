@@ -1,11 +1,12 @@
-package palikkapeli.palikat;
+package palikkapeli.objektit;
 
+import java.awt.Color;
 import java.util.Random;
 
 public class Tetriminot {
 
     private int[][][] koordinaatit;
-    private Vari[] varit;
+    private Color[] varit;
     private Random random;
 
     public Tetriminot() {
@@ -19,7 +20,7 @@ public class Tetriminot {
             {{-1, 0}, {0, 0}, {1, 0}, {0, 1}}, // T
             {{-1, 0}, {0, 0}, {0, 1}, {1, 1}} // Z
         };
-        varit = new Vari[]{Vari.GREEN, Vari.RED, Vari.PINK, Vari.YELLOW, Vari.BLUE, Vari.CYAN, Vari.GREY};
+        varit = new Color[]{Color.GREEN, Color.RED, Color.PINK, Color.YELLOW, Color.BLUE, Color.CYAN, Color.DARK_GRAY};
         random = new Random();
     }
 

@@ -1,4 +1,4 @@
-package palikkapeli.palikat;
+package palikkapeli.objektit;
 
 import java.util.ArrayList;
 

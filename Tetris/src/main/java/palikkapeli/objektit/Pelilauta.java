@@ -1,4 +1,4 @@
-package palikkapeli.pelilauta;
+package palikkapeli.objektit;
 
 import java.util.ArrayList;
 
@@ -74,18 +74,13 @@ public class Pelilauta {
     }
 
     /**
-     * Poistaa kaikki täydet rivit.
+     * Poistaa kaikki täydet rivit ja kasvattaa poistettujen rivien lukumäärää. 
      */
     public void poistaTaydetRivit() {
         for (int rivi : taysienRivienLista()) {
             poistaRivi(rivi);
+            lisaaRivi();
         }
-    }
-
-    public void tulosta() {
-//        for (int i = 0; i < 10; i++) {
-//            System.out.print(lauta[i][0]);
-//        } Testi
     }
 
     public void lisaaRivi() {

@@ -1,4 +1,6 @@
-package palikkapeli.palikat;
+package palikkapeli.objektit;
+
+import java.awt.Color;
 
 public class Pala {
 
@@ -6,12 +8,12 @@ public class Pala {
     private final int leveys = 10;
     private int x;
     private int y;
-    private Vari vari;
+    private Color vari; 
+    
 
     public Pala(int x, int y) {
         this.x = x;
-        this.y = y;
-        this.vari = vari;
+        this.y = y;       
     }
 
     /**
@@ -25,11 +27,11 @@ public class Pala {
         this.y = dy;
     }
 
-    public void SetVari(Vari vari) {
+    public void SetVari(Color vari) {
         this.vari = vari;
     }
 
-    public Vari GetVari() {
+    public Color GetVari() {
         return this.vari;
     }
 

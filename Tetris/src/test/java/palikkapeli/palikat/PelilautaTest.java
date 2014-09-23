@@ -1,5 +1,6 @@
-package palikkapeli.pelilauta;
+package palikkapeli.palikat;
 
+import palikkapeli.objektit.Pelilauta;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
