@@ -5,4 +5,4 @@ tetris
 
 palikkapeli
 
-Ohjelmoinnin harjoitustyî, syksy 2014 
+Ohjelmoinnin harjoitusty√∂, syksy 2014 
