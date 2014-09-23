@@ -7,6 +7,7 @@ public class Tetriminot {
     private int[][][] koordinaatit;
     private Random random;
 
+    
     public Tetriminot() {
         koordinaatit = new int[][][]{
             //            {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
@@ -22,20 +23,17 @@ public class Tetriminot {
     }
 
     public void luoTetrimino() {
-        Palikka palikka=new Palikka();
+        Palikka palikka = new Palikka();
         palikka.luoPalikanPalat();
         int i = mikaPalikka();
-        for (int j=0 ; j < koordinaatit[i].length; j++) {   
-                for(int k=0; k< koordinaatit[i][j].length; k++) {  
-                     for( Pala pala: palikka.getPalat()){
-//                         pala.SetXY(koordinaatit[i][j]);
-                     }
-                }   
-            }   
-        
+        for (int j = 0; j < koordinaatit[i].length; j++) {
+            for (Pala pala : palikka.getPalat()) {
+                pala.SetXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
+            }
+        }
     }
-    
-    public int mikaPalikka(){
+
+    public int mikaPalikka() {
         return random.nextInt(7);
     }
 }

@@ -14,6 +14,8 @@ public class Pelilauta {
 
     /**
      * Laittaa uuden palan ruutuun, jos se on tyhjä.
+     * @param x
+     * @param y
      */
     public void asetaPalaRuutuun(int x, int y) {
         if (onkoRuudussaPala(x, y) == false) {
@@ -24,6 +26,9 @@ public class Pelilauta {
     /**
      * Jos meinaa asettaa palan laudan ulkopuolelle niin siinä onkin jo pala!
      * Oon nero. Testaa onko ruudussa pala.
+     * @param x
+     * @param y
+     * @return 
      */
     public boolean onkoRuudussaPala(int x, int y) {
         if (x >= 10 || x < 0 || y >= 20 || y < 0) {
@@ -59,6 +64,7 @@ public class Pelilauta {
 
     /**
      * Poistaa yhden rivin.
+     * @param rivinro
      */
     public void poistaRivi(int rivinro) {
         for (int alkionro = 0; alkionro < 10; alkionro++) {

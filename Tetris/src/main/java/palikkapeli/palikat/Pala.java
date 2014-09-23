@@ -14,6 +14,12 @@ public class Pala {
         this.vari = vari;
     }
 
+    /**
+     * Laittaa palalle tietyt x- ja y- koordinaatit.
+     *
+     * @param dx
+     * @param dy
+     */
     public void SetXY(int dx, int dy) {
         this.x = dx;
         this.y = dy;
@@ -37,6 +43,8 @@ public class Pala {
 
     /**
      * Testaa osuuko pala toiseen palaan.
+     * @param pala
+     * @return 
      */
     public boolean PalaOsuu(Pala pala) {
         if (this.x == pala.GetX()) {

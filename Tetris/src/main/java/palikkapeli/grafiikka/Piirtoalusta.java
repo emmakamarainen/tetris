@@ -11,7 +11,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     public Piirtoalusta(Tetris tetris) {
         this.tetris = tetris;
-        super.setBackground(Color.WHITE);
+        super.setBackground(Color.BLACK);
     }
 
     @Override

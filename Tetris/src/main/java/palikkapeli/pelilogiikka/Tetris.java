@@ -12,7 +12,7 @@ public class Tetris {
     }
 
     public void kaynnista() {
-        Pelilauta lauta = new Pelilauta();       
+        Pelilauta lauta = new Pelilauta();        
      
 
     }
