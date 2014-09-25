@@ -68,9 +68,9 @@ public class Pelilauta {
      */
     public void poistaRivi(int rivinro) {
         for (int alkionro = 0; alkionro < 10; alkionro++) {
-            lauta[rivinro][alkionro] = 0;
-            lisaaRivi();
+            lauta[rivinro][alkionro] = 0;          
         }
+        lisaaRivi();
     }
 
     /**

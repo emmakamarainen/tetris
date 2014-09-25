@@ -7,11 +7,11 @@ import palikkapeli.pelilogiikka.Tetris;
 
 public class Nappaimistonkuuntelija implements KeyListener {
     private Tetris tetris;
-    private Piirtoalusta piirtoalusta;
+    private Paivitettava paivitettava;
 
-    Nappaimistonkuuntelija(Tetris tetris, Piirtoalusta alusta) {
+    Nappaimistonkuuntelija(Tetris tetris, Paivitettava paivitettava) {
         this.tetris=tetris;
-        this.piirtoalusta=alusta;
+        this.paivitettava=paivitettava;
     }
 
     @Override
@@ -21,13 +21,17 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            tetris.kaannaVasemmalle();
+            tetris.liikuVasemmalle();
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            tetris.kaannaOikealle();
+            tetris.liikuOikealle();
+        } else if (e.getKeyCode() == KeyEvent.VK_UP){
+            tetris.kaanna();
         }
+        paivitettava.paivita();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        tetris.liikuAlas();
     }
 }

@@ -8,12 +8,11 @@ public class Pala {
     private final int leveys = 10;
     private int x;
     private int y;
-    private Color vari; 
-    
+    private Color vari;
 
     public Pala(int x, int y) {
         this.x = x;
-        this.y = y;       
+        this.y = y;
     }
 
     /**
@@ -45,8 +44,9 @@ public class Pala {
 
     /**
      * Testaa osuuko pala toiseen palaan.
+     *
      * @param pala
-     * @return 
+     * @return
      */
     public boolean PalaOsuu(Pala pala) {
         if (this.x == pala.GetX()) {
@@ -55,5 +55,10 @@ public class Pala {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.x + "," + this.y + ")";
     }
 }

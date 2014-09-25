@@ -39,10 +39,12 @@ public class Tetriminot {
             }
         }
     }
-/**
- * Arpoo numeron, jota hyödynnetään tetriminon luonnissa. 
- * @return 
- */
+
+    /**
+     * Arpoo numeron, jota hyödynnetään tetriminon luonnissa.
+     *
+     * @return
+     */
     public int mikaPalikka() {
         return random.nextInt(7);
     }

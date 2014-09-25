@@ -1,6 +1,6 @@
 package palikkapeli.grafiikka;
 
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -21,7 +21,7 @@ public class Kayttoliittyma implements Runnable {
     public void luoKomponentit(Container container) {
         Piirtoalusta tetrisAlusta = new Piirtoalusta(this.tetris);
         this.piirtoalusta = tetrisAlusta;
-        container.add(tetrisAlusta);
+        container.add(tetrisAlusta, BorderLayout.CENTER);
         frame.addKeyListener(new Nappaimistonkuuntelija(tetris, piirtoalusta));
     }
 
@@ -31,7 +31,7 @@ public class Kayttoliittyma implements Runnable {
         int leveys = 500;
         int korkeus = 600;
         frame.setPreferredSize(new Dimension(leveys,korkeus));
-//        frame.setLocationRelativeTo(null);
+        
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setUndecorated(true);
         luoKomponentit(frame.getContentPane());
