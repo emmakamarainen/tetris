@@ -9,7 +9,8 @@ Reaaliaikainen peli, jossa ylhäältä laskeutuu erimuotoisia palikoita. Käytt�
 <ul>
  <li>Pelaaja aloittaa pelin</li>
  <li>Pelaaja voi kääntää palikkaa</li>
- <ul>onnistuu, jos palikka on yha liikkeella</ul>
+ <ul>
+ <li>onnistuu, jos palikka on yhä liikkeellä</li> </ul>
  <li>Pelaaja voi liikuttaa palikkaa sivusuunnassa</li>
  <ul>
  <li>onnistuu, jos palikka on yhä liikkeellä</li> </ul>
