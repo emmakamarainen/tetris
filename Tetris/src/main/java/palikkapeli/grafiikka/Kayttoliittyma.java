@@ -28,15 +28,16 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Palikkapeli");
-        int leveys = 500;
-        int korkeus = 600;
+        int leveys = 600;
+        int korkeus = 700;
         frame.setPreferredSize(new Dimension(leveys,korkeus));
-        
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setUndecorated(true);
+//        frame.setUndecorated(true);
         luoKomponentit(frame.getContentPane());
         frame.setVisible(true);
         frame.pack();
+       
     }
 
     public Frame getFrame() {

@@ -1,31 +1,24 @@
 package palikkapeli.tetris;
 
-import palikkapeli.objektit.Pala;
-import palikkapeli.objektit.Palikka;
+import javax.swing.SwingUtilities;
+import palikkapeli.grafiikka.Kayttoliittyma;
 import palikkapeli.pelilogiikka.Tetris;
 
 public class TetrisMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         Tetris tetris = new Tetris();
-        tetris.kaynnista();
+        Kayttoliittyma kayttis = new Kayttoliittyma(tetris);
+        SwingUtilities.invokeLater(kayttis);
+        while (kayttis.getPaivitettava() == null) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                System.out.println("asd");
+            }
+        }
+        tetris.setPaivitettava(kayttis.getPaivitettava());
+        tetris.start();
 
-        Palikka palikka = new Palikka();
-        palikka.luoPalikanPalat();
-        tetris.SetLiikkuvaPalikka(palikka);
-
-        for (Pala pala : palikka.getPalat()) {
-            System.out.println(pala);
-        }
-        int i=6;
-        for (Pala pala : palikka.getPalat()) {
-            
-                pala.SetXY(i, i);
-            i++;
-        }
-        for (Pala pala : palikka.getPalat()) {
-            System.out.println(pala);
-        }
-//        Testailua
     }
 }

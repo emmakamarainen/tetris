@@ -1,5 +1,6 @@
 package palikkapeli.objektit;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Palikka {
@@ -29,6 +30,10 @@ public class Palikka {
 
     public ArrayList<Pala> getPalat() {
         return this.palat;
+    }
+    
+    public Color GetVari(){
+        return palat.get(0).GetVari();
     }
 
     
