@@ -19,3 +19,4 @@ korjaus|
 | 23.9. | 1,5h | Palikat toimii (pajassa) ja varit lisatty, 
 palikanpiirtoa |
 | 25.9. | 3 h | Testientekoa, pelilogiikkaa |
+| 29.9. | 4 h | Vahan grafiikkaa, palikoiden kaantyminen |
