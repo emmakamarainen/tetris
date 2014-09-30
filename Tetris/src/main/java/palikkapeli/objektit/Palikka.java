@@ -14,6 +14,9 @@ public class Palikka {
         palat = new ArrayList<>();
     }
 
+    /**
+     *
+     */
     public void lisaaPala(Pala pala) {
         this.palat.add(pala);
     }
@@ -31,10 +34,9 @@ public class Palikka {
     public ArrayList<Pala> getPalat() {
         return this.palat;
     }
-    
-    public Color GetVari(){
+
+    public Color GetVari() {
         return palat.get(0).GetVari();
     }
 
-    
 }

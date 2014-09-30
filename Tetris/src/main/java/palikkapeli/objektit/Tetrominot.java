@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Tetrominot {
 
-    private int[][][] koordinaatit;
-    private Color[] varit;
+    private final int[][][] koordinaatit;
+    private final Color[] varit;
     private Random random;
 
     public Tetrominot() {
@@ -27,6 +27,7 @@ public class Tetrominot {
     /**
      * Metodi järjestää Palikan palat koordinaattien mukaan, luotava tetrimino
      * arpoutuu. Metodi myös lisää värin palalle.
+     * @return 
      */
     public Palikka luoTetromino() {
         Palikka palikka = new Palikka();

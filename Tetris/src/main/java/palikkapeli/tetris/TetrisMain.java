@@ -18,7 +18,7 @@ public class TetrisMain {
             }
         }
         tetris.setPaivitettava(kayttis.getPaivitettava());
-        tetris.start();
+        tetris.kaynnista();
 
     }
 }

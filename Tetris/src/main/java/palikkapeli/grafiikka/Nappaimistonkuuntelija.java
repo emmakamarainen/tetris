@@ -27,6 +27,8 @@ public class Nappaimistonkuuntelija implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_UP){
             tetris.kaanna();
         }
+        System.out.println("painoit jotain");
+        tetris.uusiTetromino();
         paivitettava.paivita();
     }
 

@@ -18,6 +18,9 @@ public class Kayttoliittyma implements Runnable {
         this.tetris = tetris;
     }
 
+    /**
+     *
+     */
     public void luoKomponentit(Container container) {
         Piirtoalusta tetrisAlusta = new Piirtoalusta(this.tetris);
         this.piirtoalusta = tetrisAlusta;

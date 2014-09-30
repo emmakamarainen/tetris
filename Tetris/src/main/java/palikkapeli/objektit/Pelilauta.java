@@ -14,6 +14,7 @@ public class Pelilauta {
 
     /**
      * Laittaa uuden palan ruutuun, jos se on tyhjä.
+     *
      * @param x
      * @param y
      */
@@ -26,9 +27,10 @@ public class Pelilauta {
     /**
      * Jos meinaa asettaa palan laudan ulkopuolelle niin siinä onkin jo pala!
      * Oon nero. Testaa onko ruudussa pala.
+     *
      * @param x
      * @param y
-     * @return 
+     * @return
      */
     public boolean onkoRuudussaPala(int x, int y) {
         if (x >= 10 || x < 0 || y >= 20 || y < 0) {
@@ -60,21 +62,22 @@ public class Pelilauta {
             }
         }
         return Rivit;
-    }   
+    }
 
     /**
      * Poistaa yhden rivin.
+     *
      * @param rivinro
      */
     public void poistaRivi(int rivinro) {
         for (int alkionro = 0; alkionro < 10; alkionro++) {
-            lauta[rivinro][alkionro] = 0;          
+            lauta[rivinro][alkionro] = 0;
         }
         lisaaRivi();
     }
 
     /**
-     * Poistaa kaikki täydet rivit ja kasvattaa poistettujen rivien lukumäärää. 
+     * Poistaa kaikki täydet rivit ja kasvattaa poistettujen rivien lukumäärää.
      */
     public void poistaTaydetRivit() {
         for (int rivi : taysienRivienLista()) {
@@ -83,6 +86,9 @@ public class Pelilauta {
         }
     }
 
+    /**
+     *
+     */
     public void lisaaRivi() {
         poistetutRivit++;
     }
@@ -91,6 +97,9 @@ public class Pelilauta {
         return poistetutRivit;
     }
 
+    /**
+     *
+     */
     public void nollaaRivit() {
         poistetutRivit = 0;
     }
