@@ -3,8 +3,6 @@ package palikkapeli.pelilogiikka;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Timer;
 import palikkapeli.grafiikka.Paivitettava;
 import palikkapeli.objektit.Pala;
@@ -40,11 +38,6 @@ public class Tetris extends Timer implements ActionListener {
         while (!peliloppu) {
             uusiTetromino();
             liikuAlas();
-//            try {
-//                this.wait(1000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(Tetris.class.getName()).log(Level.SEVERE, null, ex);
-//            }
         }
     }
 
@@ -64,25 +57,26 @@ public class Tetris extends Timer implements ActionListener {
         this.liikkuva = palikka;
     }
 
-//    /**
-//     * Tarvitaanko?
-//     */
-//    public void asetaPalatLaudalle() {
-//        for (Palikka palikka : pysahtyneet) {
-//            for (Pala pala : palikka.getPalat()) {
-//                lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
-//            }
-//        }
-//    }
-//
-//    /**
-//     *
-//     */
-//    public void asetaLiikkuvatPalatLaudalle() {
-//        for (Pala pala : liikkuva.getPalat()) {
-//            lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
-//        }
-//    }
+    /**
+     * Tarvitaanko?
+     */
+    public void asetaPalatLaudalle() {
+        for (Palikka palikka : pysahtyneet) {
+            for (Pala pala : palikka.getPalat()) {
+                lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+            }
+        }
+    }
+
+    /**
+     * Tarvitaanko?
+     */
+    public void asetaLiikkuvatPalatLaudalle() {
+        for (Pala pala : liikkuva.getPalat()) {
+            lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+        }
+    }
+
     /**
      * Lisää ennen liikkuneen tetrominon pysähtyneeksi ja lisää sen listaan
      */
@@ -92,7 +86,8 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     /**
-     * Muuttaa liikkuvan tetrominon palojen koordinaattia niin, että se liikkuu alaspäin. 
+     * Muuttaa liikkuvan tetrominon palojen koordinaattia niin, että se liikkuu
+     * alaspäin.
      */
     public void liikuAlas() {
         for (Pala pala : liikkuva.getPalat()) {
