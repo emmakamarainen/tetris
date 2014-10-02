@@ -16,7 +16,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     public Piirtoalusta(Tetris tetris) {
         this.tetris = tetris;
         super.setBackground(Color.LIGHT_GRAY);
-        fontti=new Font("Courier", Font.PLAIN,20);
+        fontti = new Font("Courier", Font.PLAIN, 20);
     }
 
     @Override
@@ -24,25 +24,27 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         super.paintComponent(g);
         g.setColor(Color.GRAY);
         g.drawRect(20, 20, 450, 620);
-//        for (Palikka palikka : tetris.GetPysahtyneetTetriminot()) {
-//            System.out.println("Pysähtyneet palat");
-//            for (Pala pala : palikka.getPalat()) {
-//                g.drawRect(pala.GetX(), pala.GetY(), 10, 10);
-//                g.setColor(pala.GetVari());
-//                g.fillRect(pala.GetX(), pala.GetY(), 9, 9);
-//            }
-//        }
-        //Skaalaaa
+        for (Palikka palikka : tetris.GetPysahtyneetTetriminot()) {
+            System.out.println("Pysähtyneet palat");
+            for (Pala pala : palikka.getPalat()) {
+                g.setColor(Color.BLACK);
+                g.drawRect(pala.GetX()*30+20, pala.GetY()*30+20, 30, 30);
+                g.setColor(pala.GetVari());
+                g.fillRect(pala.GetX()*30+20, pala.GetY()*30+20, 30, 30);
+            }
+        }
         for (Pala pala : tetris.GetLiikkuvaPalikka().getPalat()) {
             System.out.println("Liikkuva pala");
-            g.drawRect(pala.GetX()+20, pala.GetY()+20, 50, 50);
-            g.setColor(pala.GetVari());
-            g.fillRect(pala.GetX()+20, pala.GetY()+20, 49, 49);
             
+            g.setColor(pala.GetVari());
+            g.fillRect(pala.GetX()*30 + 20, pala.GetY()*30 + 20, 30, 30);
+            g.setColor(Color.BLACK);
+            g.drawRect(pala.GetX()*30 + 20, pala.GetY()*30 + 20, 30, 30);
         }
+        g.setColor(Color.GRAY);
         g.setFont(fontti);
         g.drawString("Pisteet:", 500, 100);
-        g.drawString(""+tetris.getPisteet(), 500, 150);
+        g.drawString("" + tetris.getPisteet(), 500, 150);
     }
 
     @Override

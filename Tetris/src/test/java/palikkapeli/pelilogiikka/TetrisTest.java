@@ -42,7 +42,7 @@ public class TetrisTest {
     public void LiikuAlasLiikuttaaPalikkaaAlas() {
         int y = palikka.getPalat().get(0).GetY();
         tetris.liikuAlas();
-        assertEquals(y - 1, palikka.getPalat().get(0).GetY());
+        assertEquals(y + 1, palikka.getPalat().get(0).GetY());
     }
 
     @Test

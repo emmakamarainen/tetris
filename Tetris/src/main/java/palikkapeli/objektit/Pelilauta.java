@@ -15,8 +15,8 @@ public class Pelilauta {
     /**
      * Laittaa uuden palan ruutuun, jos se on tyhjä.
      *
-     * @param x
-     * @param y
+     * @param x ruudun x-koordinaatti
+     * @param y ruudun y-koordinaatti
      */
     public void asetaPalaRuutuun(int x, int y) {
         if (onkoRuudussaPala(x, y) == false) {
@@ -26,11 +26,11 @@ public class Pelilauta {
 
     /**
      * Jos meinaa asettaa palan laudan ulkopuolelle niin siinä onkin jo pala!
-     * Oon nero. Testaa onko ruudussa pala.
+     * Testaa onko ruudussa pala.
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x testattavan ruudun x-koordinaatti
+     * @param y testattavan ruudun y-koordinaatti
+     * @return palauttaa true/false riippuen onko ruudussa pala
      */
     public boolean onkoRuudussaPala(int x, int y) {
         if (x >= 10 || x < 0 || y >= 20 || y < 0) {
@@ -44,6 +44,8 @@ public class Pelilauta {
 
     /**
      * Käy läpi pelilaudan ja palauttaa listan täysistä riveistä.
+     *
+     * @return lista täysistä riveistä
      */
     public ArrayList<Integer> taysienRivienLista() {
         ArrayList<Integer> Rivit = new ArrayList<>();
@@ -65,9 +67,9 @@ public class Pelilauta {
     }
 
     /**
-     * Poistaa yhden rivin.
+     * Poistaa yhden rivin ja kasvattaa poistettujen rivien lukua. 
      *
-     * @param rivinro
+     * @param rivinro pistettavan rivin rivinumero
      */
     public void poistaRivi(int rivinro) {
         for (int alkionro = 0; alkionro < 10; alkionro++) {
@@ -87,7 +89,7 @@ public class Pelilauta {
     }
 
     /**
-     *
+     * Kasvattaa poistettujen rivien lukua, käytetään pisteidenlaskussa
      */
     public void lisaaRivi() {
         poistetutRivit++;
@@ -98,7 +100,7 @@ public class Pelilauta {
     }
 
     /**
-     *
+     * Laittaa poistettujen rivien luvun nollaksi.
      */
     public void nollaaRivit() {
         poistetutRivit = 0;

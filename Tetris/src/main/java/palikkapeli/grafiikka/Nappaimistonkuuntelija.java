@@ -26,14 +26,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
             tetris.liikuOikealle();
         } else if (e.getKeyCode() == KeyEvent.VK_UP){
             tetris.kaanna();
-        }
-        System.out.println("painoit jotain");
-        tetris.uusiTetromino();
+        }               
         paivitettava.paivita();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        tetris.liikuAlas();
+//        tetris.liikuAlas();
     }
 }

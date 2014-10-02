@@ -14,8 +14,8 @@ import palikkapeli.objektit.Tetrominot;
 
 public class Tetris extends Timer implements ActionListener {
 
-    private ArrayList<Palikka> pysahtyneetpalikat;
-    private Palikka liikkuvapalikka;
+    private ArrayList<Palikka> pysahtyneet;
+    private Palikka liikkuva;
     private Paivitettava paivitettava;
     private Pelilauta lauta;
     private boolean palaliikkuu;
@@ -23,17 +23,20 @@ public class Tetris extends Timer implements ActionListener {
 
     public Tetris() {
         super(1000, null);
-        this.pysahtyneetpalikat = new ArrayList<Palikka>();
-        this.liikkuvapalikka = new Palikka();
+        this.pysahtyneet = new ArrayList<Palikka>();
+        this.liikkuva = new Palikka();
         this.lauta = new Pelilauta();
         this.palaliikkuu = false;
         this.peliloppu = false;
+        addActionListener(this);
+        setInitialDelay(1000);
     }
 
     /**
-     *
+     * Käynnistää tetris-pelin
      */
     public void kaynnista() {
+        this.start();
         while (!peliloppu) {
             uusiTetromino();
             liikuAlas();
@@ -42,13 +45,11 @@ public class Tetris extends Timer implements ActionListener {
 //            } catch (InterruptedException ex) {
 //                Logger.getLogger(Tetris.class.getName()).log(Level.SEVERE, null, ex);
 //            }
-
         }
-
     }
 
     /**
-     *
+     * Luo uuden Tetrominon ja asettaa sen liikkuvaksi.
      */
     public void uusiTetromino() {
         if (palaliikkuu == true) {
@@ -60,83 +61,84 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     public void SetLiikkuvaPalikka(Palikka palikka) {
-        this.liikkuvapalikka = palikka;
+        this.liikkuva = palikka;
     }
 
+//    /**
+//     * Tarvitaanko?
+//     */
+//    public void asetaPalatLaudalle() {
+//        for (Palikka palikka : pysahtyneet) {
+//            for (Pala pala : palikka.getPalat()) {
+//                lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+//            }
+//        }
+//    }
+//
+//    /**
+//     *
+//     */
+//    public void asetaLiikkuvatPalatLaudalle() {
+//        for (Pala pala : liikkuva.getPalat()) {
+//            lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+//        }
+//    }
     /**
-     *
-     */
-    public void asetaPalatLaudalle() {
-        for (Palikka palikka : pysahtyneetpalikat) {
-            for (Pala pala : palikka.getPalat()) {
-                lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
-            }
-        }
-    }
-
-    /**
-     *
-     */
-    public void asetaLiikkuvatPalatLaudalle() {
-        for (Pala pala : liikkuvapalikka.getPalat()) {
-            lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
-        }
-    }
-
-    /**
-     *
+     * Lisää ennen liikkuneen tetrominon pysähtyneeksi ja lisää sen listaan
      */
     public void liikkuvastaPalikastaPysahtynyt() {
-        pysahtyneetpalikat.add(liikkuvapalikka);
+        pysahtyneet.add(liikkuva);
         palaliikkuu = false;
     }
 
     /**
-     *
+     * Muuttaa liikkuvan tetrominon palojen koordinaattia niin, että se liikkuu alaspäin. 
      */
     public void liikuAlas() {
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
+
             if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY())) {
                 liikkuvastaPalikastaPysahtynyt();
                 return;
             }
             pala.SetXY(pala.GetX(), pala.GetY() + 1);
+            System.out.println("liikuAlas");
         }
     }
 
     /**
-     *
+     * Kääntää tetrominoa myötäpäivään
      */
     public void kaanna() {
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetY(), pala.GetX() * (-1));
         }
     }
 
     /**
-     *
+     * Liikuttaa tetrominoa oikealle
      */
     public void liikuOikealle() {
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
             if (pala.GetX() == 9) {
                 return;
             }
         }
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX() + 1, pala.GetY());
         }
     }
 
     /**
-     *
+     * Liikuttaa tetrominoa vasemmalle
      */
     public void liikuVasemmalle() {
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
             if (pala.GetX() == 0) {
                 return;
             }
         }
-        for (Pala pala : liikkuvapalikka.getPalat()) {
+        for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX() - 1, pala.GetY());
         }
     }
@@ -146,18 +148,19 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     public ArrayList<Palikka> GetPysahtyneetTetriminot() {
-        return pysahtyneetpalikat;
+        return pysahtyneet;
     }
 
     public Palikka GetLiikkuvaPalikka() {
-        return liikkuvapalikka;
+        return liikkuva;
     }
 
     /**
-     *
+     * Lopettaa pelin.
      */
     public void lopeta() {
         peliloppu = true;
+        stop();
     }
 
     public int getPisteet() {
@@ -167,7 +170,6 @@ public class Tetris extends Timer implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("jotain");
         if (palaliikkuu) {
             liikuAlas();
             paivitettava.paivita();

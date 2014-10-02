@@ -11,7 +11,7 @@ public class Tetrominot {
 
     public Tetrominot() {
         koordinaatit = new int[][][]{
-            //            {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
+            // {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
             {{0, 0}, {1, 0}, {-2, 0}, {-1, 0}}, // I
             {{0, 0}, {1, 0}, {1, 1}, {-1, 0}}, // J
             {{0, 0}, {1, 0}, {-1, 1}, {-1, 0}}, // L
@@ -27,7 +27,8 @@ public class Tetrominot {
     /**
      * Metodi järjestää Palikan palat koordinaattien mukaan, luotava tetrimino
      * arpoutuu. Metodi myös lisää värin palalle.
-     * @return 
+     *
+     * @return palauttaa palikan, jolla on oikeat koordinaatit
      */
     public Palikka luoTetromino() {
         Palikka palikka = new Palikka();
@@ -44,10 +45,10 @@ public class Tetrominot {
 
     /**
      * Arpoo numeron, jota hyödynnetään tetriminon luonnissa.
-     *
-     * @return
+     * 
+     * @return palauttaa arvotun numeron väliltä 0-7
      */
     public int mikaPalikka() {
         return random.nextInt(7);
-    }       
+    }
 }
