@@ -19,3 +19,4 @@
 | 25.9. | 3 h | Testientekoa, pelilogiikkaa |
 | 29.9. | 4 h | Vahan grafiikkaa, palikoiden kaantyminen |
 | 30.9. | 2,5 h | Palikanpiirtoa (nyt näkyy yksi), pit-korjaus (pajassa) |
+| 2.10. | 3 h | Palikanpiirtoa ja korjailua |
