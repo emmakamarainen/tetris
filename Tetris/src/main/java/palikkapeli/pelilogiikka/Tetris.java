@@ -8,7 +8,7 @@ import palikkapeli.grafiikka.Paivitettava;
 import palikkapeli.objektit.Pala;
 import palikkapeli.objektit.Palikka;
 import palikkapeli.objektit.Pelilauta;
-import palikkapeli.objektit.Tetrominot;
+import palikkapeli.objektit.Tetromino;
 
 public class Tetris extends Timer implements ActionListener {
 
@@ -21,7 +21,7 @@ public class Tetris extends Timer implements ActionListener {
 
     public Tetris() {
         super(1000, null);
-        this.pysahtyneet = new ArrayList<Palikka>();
+        this.pysahtyneet = new ArrayList<>();
         this.liikkuva = new Palikka();
         this.lauta = new Pelilauta();
         this.palaliikkuu = false;
@@ -48,7 +48,7 @@ public class Tetris extends Timer implements ActionListener {
         if (palaliikkuu == true) {
             return;
         }
-        Tetrominot tetromino = new Tetrominot();
+        Tetromino tetromino = new Tetromino();
         SetLiikkuvaPalikka(tetromino.luoTetromino());
         palaliikkuu = true;
     }

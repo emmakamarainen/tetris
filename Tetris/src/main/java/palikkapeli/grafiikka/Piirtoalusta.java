@@ -24,23 +24,26 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         super.paintComponent(g);
         g.setColor(Color.GRAY);
         g.drawRect(20, 20, 450, 620);
-        for (Palikka palikka : tetris.GetPysahtyneetTetriminot()) {
-            System.out.println("Pysähtyneet palat");
-            for (Pala pala : palikka.getPalat()) {
-                g.setColor(Color.BLACK);
-                g.drawRect(pala.GetX()*30+20, pala.GetY()*30+20, 30, 30);
-                g.setColor(pala.GetVari());
-                g.fillRect(pala.GetX()*30+20, pala.GetY()*30+20, 30, 30);
-            }
-        }
+
+//        for (Palikka palikka : tetris.GetPysahtyneetTetriminot()) {
+//            System.out.println("Pysähtyneet palat");
+//            for (Pala pala : palikka.getPalat()) {
+//                g.setColor(pala.GetVari());
+//                g.fillRect(pala.GetX() * 30 + 20, pala.GetY() * 30 + 20, 30, 30);
+//                g.setColor(Color.BLACK);
+//                g.drawRect(pala.GetX() * 30 + 20, pala.GetY() * 30 + 20, 30, 30);
+//            }
+//        }
+
+
         for (Pala pala : tetris.GetLiikkuvaPalikka().getPalat()) {
             System.out.println("Liikkuva pala");
-            
             g.setColor(pala.GetVari());
-            g.fillRect(pala.GetX()*30 + 20, pala.GetY()*30 + 20, 30, 30);
+            g.fillRect(pala.GetX() * 30 + 50, pala.GetY() * 30 + 20, 30, 30);
             g.setColor(Color.BLACK);
-            g.drawRect(pala.GetX()*30 + 20, pala.GetY()*30 + 20, 30, 30);
+            g.drawRect(pala.GetX() * 30 + 50, pala.GetY() * 30 + 20, 30, 30);
         }
+
         g.setColor(Color.GRAY);
         g.setFont(fontti);
         g.drawString("Pisteet:", 500, 100);
