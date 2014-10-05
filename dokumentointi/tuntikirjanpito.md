@@ -20,3 +20,4 @@
 | 29.9. | 4 h | Vahan grafiikkaa, palikoiden kaantyminen |
 | 30.9. | 2,5 h | Palikanpiirtoa (nyt näkyy yksi), pit-korjaus (pajassa) |
 | 2.10. | 3 h | Palikanpiirtoa ja korjailua |
+| 6.10. | 1 h | Palikkabugin korjausyritys |
