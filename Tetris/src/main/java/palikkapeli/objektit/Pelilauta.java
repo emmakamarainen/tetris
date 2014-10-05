@@ -67,7 +67,7 @@ public class Pelilauta {
     }
 
     /**
-     * Poistaa yhden rivin ja kasvattaa poistettujen rivien lukua. 
+     * Poistaa yhden rivin ja kasvattaa poistettujen rivien lukua.
      *
      * @param rivinro pistettavan rivin rivinumero
      */
@@ -104,5 +104,14 @@ public class Pelilauta {
      */
     public void nollaaRivit() {
         poistetutRivit = 0;
+    }
+
+    public void nollaaLauta() {
+        for (int rivi = 0; rivi < 20; rivi++) {
+            for (int sarake = 0; sarake < 10; sarake++) {
+                lauta[sarake][rivi] = 0;
+            }
+
+        }
     }
 }

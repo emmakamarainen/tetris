@@ -17,7 +17,7 @@ public class Tetromino {
             {{5, 0}, {4, 1}, {5, 1}, {4, 0}}, // O
             {{5, 0}, {6, 0}, {4, 1}, {5, 1}}, // S
             {{5, 0}, {6, 0}, {5, 1}, {4, 0}}, // T
-            {{5, 0}, {0, 1}, {6, 1}, {4, 0}} // Z
+            {{5, 0}, {5, 1}, {6, 1}, {4, 0}} // Z
             
 //            {{0, 0}, {1, 0}, {-2, 0}, {-1, 0}}, // I
 //            {{0, 0}, {1, 0}, {1, 1}, {-1, 0}}, // J
@@ -41,10 +41,13 @@ public class Tetromino {
         Palikka palikka = new Palikka();
         palikka.luoPalikanPalat();
         int i = mikaPalikka();
+//        System.out.println("Mikä luku "+i);
         for (int j = 0; j < koordinaatit[i].length; j++) {
             Pala pala = palikka.getPalat().get(j);
+//            System.out.println("ennen" +pala);
             pala.SetXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
             pala.SetVari(varit[i]);
+//            System.out.println("jälkeen" +pala);
         }
         return palikka;
     }

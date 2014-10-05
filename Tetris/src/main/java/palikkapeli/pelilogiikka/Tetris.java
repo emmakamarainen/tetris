@@ -27,7 +27,7 @@ public class Tetris extends Timer implements ActionListener {
         this.palaliikkuu = false;
         this.peliloppu = false;
         addActionListener(this);
-        setInitialDelay(1000);
+        setInitialDelay(2500);
     }
 
     /**
@@ -37,7 +37,8 @@ public class Tetris extends Timer implements ActionListener {
         this.start();
         while (!peliloppu) {
             uusiTetromino();
-            liikuAlas();
+//            asetaPalatLaudalle();
+
         }
     }
 
@@ -50,6 +51,7 @@ public class Tetris extends Timer implements ActionListener {
         }
         Tetromino tetromino = new Tetromino();
         SetLiikkuvaPalikka(tetromino.luoTetromino());
+        asetaPalatLaudalle();
         palaliikkuu = true;
     }
 
@@ -57,13 +59,23 @@ public class Tetris extends Timer implements ActionListener {
         this.liikkuva = palikka;
     }
 
+    public void asetaPalatLaudalle() {
+        lauta.nollaaLauta();
+
+        asetaPysahtyneetPalatLaudalle();
+
+        asetaLiikkuvatPalatLaudalle();
+    }
+
     /**
      * Tarvitaanko?
      */
-    public void asetaPalatLaudalle() {
-        for (Palikka palikka : pysahtyneet) {
-            for (Pala pala : palikka.getPalat()) {
-                lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+    public void asetaPysahtyneetPalatLaudalle() {
+        if (!pysahtyneet.isEmpty()) {
+            for (Palikka palikka : pysahtyneet) {
+                for (Pala pala : palikka.getPalat()) {
+                    lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
+                }
             }
         }
     }
@@ -94,6 +106,7 @@ public class Tetris extends Timer implements ActionListener {
 
             if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY())) {
                 liikkuvastaPalikastaPysahtynyt();
+                System.out.println("liikuAlas ruudussa pala");
                 return;
             }
             pala.SetXY(pala.GetX(), pala.GetY() + 1);
@@ -108,6 +121,7 @@ public class Tetris extends Timer implements ActionListener {
         for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetY(), pala.GetX() * (-1));
         }
+        System.out.println("kaanna");
     }
 
     /**
