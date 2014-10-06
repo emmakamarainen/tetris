@@ -21,3 +21,4 @@
 | 30.9. | 2,5 h | Palikanpiirtoa (nyt näkyy yksi), pit-korjaus (pajassa) |
 | 2.10. | 3 h | Palikanpiirtoa ja korjailua |
 | 6.10. | 1 h | Palikkabugin korjausyritys |
+| 7.10. | 2 h | Palikkabugin korjausyritys & testeja lisaa |
