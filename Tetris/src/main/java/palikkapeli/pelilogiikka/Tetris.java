@@ -27,7 +27,7 @@ public class Tetris extends Timer implements ActionListener {
         this.palaliikkuu = false;
         this.peliloppu = false;
         addActionListener(this);
-        setInitialDelay(2500);
+        setInitialDelay(1000);
     }
 
     /**
@@ -104,6 +104,14 @@ public class Tetris extends Timer implements ActionListener {
     public void liikuAlas() {
         for (Pala pala : liikkuva.getPalat()) {
 
+//            for (Palikka palikka : pysahtyneet) {
+//                for (Pala pysahtynytpala : palikka.getPalat()) {
+//                    if (pala.PalaOsuu(pysahtynytpala)) {
+//                        liikkuvastaPalikastaPysahtynyt();
+//                    }
+//                }
+//            }
+
             if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY())) {
                 liikkuvastaPalikastaPysahtynyt();
                 System.out.println("liikuAlas ruudussa pala");
@@ -133,6 +141,11 @@ public class Tetris extends Timer implements ActionListener {
                 return;
             }
         }
+        for (Palikka palikka : pysahtyneet) {
+            if (liikkuva.osuuPalikkaan(palikka)) {
+                return;
+            }
+        }
         for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX() + 1, pala.GetY());
         }
@@ -146,7 +159,12 @@ public class Tetris extends Timer implements ActionListener {
             if (pala.GetX() == 0) {
                 return;
             }
-        }
+        }    
+            for (Palikka palikka : pysahtyneet) {
+                if (liikkuva.osuuPalikkaan(palikka)) {
+                    return;
+                }
+            }       
         for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX() - 1, pala.GetY());
         }
@@ -154,6 +172,10 @@ public class Tetris extends Timer implements ActionListener {
 
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
+    }
+
+    public Paivitettava GetPaivitettava() {
+        return paivitettava;
     }
 
     public ArrayList<Palikka> GetPysahtyneetTetriminot() {
@@ -170,6 +192,10 @@ public class Tetris extends Timer implements ActionListener {
     public void lopeta() {
         peliloppu = true;
         stop();
+    }
+
+    public boolean GetPeliloppu() {
+        return peliloppu;
     }
 
     public int getPisteet() {

@@ -1,5 +1,6 @@
 package palikkapeli.objektit;
 
+import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -44,5 +45,15 @@ public class PalikkaTest {
     public void PalikallaOnNeljäPalaa() {
         palikka.luoPalikanPalat();
         assertEquals(4, palikka.getPalat().size());
+    }
+    
+    @Test
+    public void OikeaVari() {
+        palikka.luoPalikanPalat();
+        Color vari = Color.GREEN;
+        for (Pala pala:palikka.getPalat()){
+            pala.SetVari(vari);
+        }
+        assertEquals(vari, palikka.GetVari());
     }
 }

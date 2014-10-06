@@ -48,10 +48,21 @@ public class Palikka {
             palat.get(i).SetXY(koordinaatit[i][0], koordinaatit[i][1]);
         }
     }
-    
-    public void SetVari(Color vari){
-        for (Pala pala: palat){
+
+    public void SetVari(Color vari) {
+        for (Pala pala : palat) {
             pala.SetVari(vari);
         }
+    }
+
+    public boolean osuuPalikkaan(Palikka palikka) {
+        for (Pala pala : palikka.getPalat()) {
+            for (int i = 0; i < palat.size(); i++) {
+                if (pala.PalaOsuu(palat.get(i))) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

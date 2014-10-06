@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import palikkapeli.grafiikka.Paivitettava;
 import palikkapeli.objektit.Pala;
 import palikkapeli.objektit.Palikka;
 
@@ -109,4 +110,19 @@ public class TetrisTest {
         tetris.liikkuvastaPalikastaPysahtynyt();
         assertEquals(2, tetris.GetPysahtyneetTetriminot().size());
     }
+    
+    @Test
+    public void GetLiikkuvaPalikkaPalauttaaOikein(){
+        Palikka palikka2 = new Palikka();
+        tetris.SetLiikkuvaPalikka(palikka2);
+        assertEquals(palikka2, tetris.GetLiikkuvaPalikka());
+    }
+    
+    @Test
+    public void LopetaLopettaaPelin(){
+        tetris.lopeta();
+        assertEquals(true, tetris.GetPeliloppu());
+    }
+    
+    
 }

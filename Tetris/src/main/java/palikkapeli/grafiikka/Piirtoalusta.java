@@ -23,7 +23,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.GRAY);
-        g.drawRect(50, 20, 300, 600);
+        g.drawRect(50, 50, 300, 630);
 
         if (!tetris.GetPysahtyneetTetriminot().isEmpty()) {
             for (Palikka palikka : tetris.GetPysahtyneetTetriminot()) {

@@ -31,26 +31,36 @@ public class PalaTest {
     @After
     public void tearDown() {
     }
-    
+
     @Test
-    public void getXPalauttaaOikeanX(){
+    public void getXPalauttaaOikeanX() {
         assertEquals(5, pala.GetX());
     }
-    
+
     @Test
-    public void getXPalauttaaOikeanY(){
+    public void getXPalauttaaOikeanY() {
         assertEquals(5, pala.GetY());
     }
-    
+
     @Test
-    public void PalaOsuuPalauttaaTrueJosOsuu(){
-        Pala pala2 = new Pala(5,5);
+    public void PalaOsuuPalauttaaTrueJosOsuu() {
+        Pala pala2 = new Pala(5, 5);
         assertEquals(true, pala.PalaOsuu(pala2));
     }
-    
+
     @Test
-    public void PalaOsuuPalauttaaFalseJosEiOsu(){
-        Pala pala2 = new Pala(6,5);
+    public void PalaOsuuPalauttaaFalseJosEiOsu() {
+        Pala pala2 = new Pala(6, 5);
         assertEquals(false, pala.PalaOsuu(pala2));
+    }
+
+    @Test
+    public void OikeaPituus() {
+        assertEquals(30, pala.getPituus());
+    }
+
+    @Test
+    public void OikeaLeveys() {
+        assertEquals(30, pala.getLeveys());
     }
 }

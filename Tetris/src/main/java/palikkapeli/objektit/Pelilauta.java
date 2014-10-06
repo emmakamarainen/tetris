@@ -34,9 +34,11 @@ public class Pelilauta {
      */
     public boolean onkoRuudussaPala(int x, int y) {
         if (x >= 10 || x < 0 || y >= 20 || y < 0) {
+            System.out.println("Reuna");
             return true;
         }
         if (lauta[x][y] == 0) {
+            System.out.println("ei palaa");
             return false;
         }
         return true;
@@ -72,6 +74,9 @@ public class Pelilauta {
      * @param rivinro pistettavan rivin rivinumero
      */
     public void poistaRivi(int rivinro) {
+        if (rivinro < 0 || rivinro > 20) {
+            return;
+        }
         for (int alkionro = 0; alkionro < 10; alkionro++) {
             lauta[rivinro][alkionro] = 0;
         }
@@ -82,9 +87,11 @@ public class Pelilauta {
      * Poistaa kaikki täydet rivit ja kasvattaa poistettujen rivien lukumäärää.
      */
     public void poistaTaydetRivit() {
-        for (int rivi : taysienRivienLista()) {
-            poistaRivi(rivi);
-            lisaaRivi();
+        if (!taysienRivienLista().isEmpty()) {
+            for (int rivi : taysienRivienLista()) {
+                poistaRivi(rivi);
+                lisaaRivi();
+            }
         }
     }
 
