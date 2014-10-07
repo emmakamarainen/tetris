@@ -32,7 +32,7 @@ public class Kayttoliittyma implements Runnable {
     public void run() {
         frame = new JFrame("Palikkapeli");
         int leveys = 600;
-        int korkeus = 800;
+        int korkeus = 700;
         frame.setPreferredSize(new Dimension(leveys,korkeus));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
