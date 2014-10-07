@@ -17,17 +17,17 @@ public class Tetris extends Timer implements ActionListener {
     private Paivitettava paivitettava;
     private Pelilauta lauta;
     private boolean palaliikkuu;
-    private boolean peliloppu;
+    private boolean peliloppu;  
 
     public Tetris() {
-        super(1000, null);
+        super(500, null);
         this.pysahtyneet = new ArrayList<>();
         this.liikkuva = new Palikka();
         this.lauta = new Pelilauta();
         this.palaliikkuu = false;
         this.peliloppu = false;
         addActionListener(this);
-        setInitialDelay(1000);
+        setInitialDelay(500);
     }
 
     /**
@@ -36,8 +36,8 @@ public class Tetris extends Timer implements ActionListener {
     public void kaynnista() {
         this.start();
         while (!peliloppu) {
+            osuuYlareunaan();
             uusiTetromino();
-//            asetaPalatLaudalle();
 
         }
     }
@@ -61,10 +61,7 @@ public class Tetris extends Timer implements ActionListener {
 
     public void asetaPalatLaudalle() {
         lauta.nollaaLauta();
-
         asetaPysahtyneetPalatLaudalle();
-
-        asetaLiikkuvatPalatLaudalle();
     }
 
     /**
@@ -77,15 +74,6 @@ public class Tetris extends Timer implements ActionListener {
                     lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
                 }
             }
-        }
-    }
-
-    /**
-     * Tarvitaanko?
-     */
-    public void asetaLiikkuvatPalatLaudalle() {
-        for (Pala pala : liikkuva.getPalat()) {
-            lauta.asetaPalaRuutuun(pala.GetX(), pala.GetY());
         }
     }
 
@@ -103,22 +91,15 @@ public class Tetris extends Timer implements ActionListener {
      */
     public void liikuAlas() {
         for (Pala pala : liikkuva.getPalat()) {
-
-//            for (Palikka palikka : pysahtyneet) {
-//                for (Pala pysahtynytpala : palikka.getPalat()) {
-//                    if (pala.PalaOsuu(pysahtynytpala)) {
-//                        liikkuvastaPalikastaPysahtynyt();
-//                    }
-//                }
-//            }
-
-            if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY())) {
+            if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY() + 1)) {
                 liikkuvastaPalikastaPysahtynyt();
-                System.out.println("liikuAlas ruudussa pala");
+//                System.out.println("liikuAlas ruudussa pala");
                 return;
             }
+        }
+        for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX(), pala.GetY() + 1);
-            System.out.println("liikuAlas");
+//            System.out.println("liikuAlas");
         }
     }
 
@@ -127,9 +108,15 @@ public class Tetris extends Timer implements ActionListener {
      */
     public void kaanna() {
         for (Pala pala : liikkuva.getPalat()) {
-            pala.SetXY(pala.GetY(), pala.GetX() * (-1));
+            if (lauta.onkoRuudussaPala(pala.GetY(), pala.GetX() * (-1))) {
+                System.out.println("kääntyy reunojen yli");
+                return;
+            }
         }
-        System.out.println("kaanna");
+        for (Pala pala : liikkuva.getPalat()) {
+            pala.SetXY(pala.GetY(), pala.GetX() * (-1));
+            System.out.println("kaanna");
+        }
     }
 
     /**
@@ -137,12 +124,7 @@ public class Tetris extends Timer implements ActionListener {
      */
     public void liikuOikealle() {
         for (Pala pala : liikkuva.getPalat()) {
-            if (pala.GetX() == 9) {
-                return;
-            }
-        }
-        for (Palikka palikka : pysahtyneet) {
-            if (liikkuva.osuuPalikkaan(palikka)) {
+            if (lauta.onkoRuudussaPala(pala.GetX() + 1, pala.GetY())) {
                 return;
             }
         }
@@ -156,15 +138,10 @@ public class Tetris extends Timer implements ActionListener {
      */
     public void liikuVasemmalle() {
         for (Pala pala : liikkuva.getPalat()) {
-            if (pala.GetX() == 0) {
+            if (lauta.onkoRuudussaPala(pala.GetX() - 1, pala.GetY())) {
                 return;
             }
-        }    
-            for (Palikka palikka : pysahtyneet) {
-                if (liikkuva.osuuPalikkaan(palikka)) {
-                    return;
-                }
-            }       
+        }
         for (Pala pala : liikkuva.getPalat()) {
             pala.SetXY(pala.GetX() - 1, pala.GetY());
         }
@@ -192,6 +169,21 @@ public class Tetris extends Timer implements ActionListener {
     public void lopeta() {
         peliloppu = true;
         stop();
+    }
+
+    public void osuuYlareunaan() {
+        for (Pala pala : liikkuva.getPalat()) {
+            if (lauta.onkoRuudussaPala(pala.GetX(), pala.GetY())) {
+                lopeta();
+            }
+//            for (Palikka palikka : pysahtyneet) {
+//                for (Pala pyspala : palikka.getPalat()) {
+//                    if (pala.PalaOsuu(pyspala)) {
+//                        lopeta();
+//                    }
+//                }
+//            }
+        }
     }
 
     public boolean GetPeliloppu() {

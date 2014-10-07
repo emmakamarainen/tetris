@@ -12,13 +12,12 @@ public class TetrisMain {
         SwingUtilities.invokeLater(kayttis);
         while (kayttis.getPaivitettava() == null) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 System.out.println("asd");
             }
         }
         tetris.setPaivitettava(kayttis.getPaivitettava());
         tetris.kaynnista();
-//        tetris.uusiTetromino();
     }
 }

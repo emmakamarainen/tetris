@@ -38,7 +38,7 @@ public class Pelilauta {
             return true;
         }
         if (lauta[x][y] == 0) {
-            System.out.println("ei palaa");
+//            System.out.println("ei palaa");
             return false;
         }
         return true;
