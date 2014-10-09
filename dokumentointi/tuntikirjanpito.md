@@ -22,3 +22,4 @@
 | 2.10. | 3 h | Palikanpiirtoa ja korjailua |
 | 6.10. | 1 h | Palikkabugin korjausyritys |
 | 7.10. | 2 h | Palikkabugin korjausyritys & testeja lisaa |
+| 9.10. | 5 h | Palikat kaantyvat, yritys saada taysi rivi haviamaan |
