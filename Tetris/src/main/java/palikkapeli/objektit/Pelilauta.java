@@ -39,7 +39,7 @@ public class Pelilauta {
      */
     public boolean onkoRuudussaPala(int x, int y) {
         if (x >= 10 || x < 0 || y >= 20 || y < 0) {
-            System.out.println("Reuna");
+//            System.out.println("Reuna");
             return true;
         }
         if (lauta[x][y] == 0) {
@@ -56,7 +56,7 @@ public class Pelilauta {
      */
     public ArrayList<Integer> taysienRivienLista() {
         ArrayList<Integer> Rivit = new ArrayList<>();
-        int nro = 0;
+//        int nro = 0;
         for (int rivi = 0; rivi < 20; rivi++) {
             boolean rivitaysi = true;
             for (int sarake = 0; sarake < 10; sarake++) {
@@ -66,11 +66,11 @@ public class Pelilauta {
                 }
             }
             if (rivitaysi == true) {
-                Rivit.add(nro, rivi);
-                nro++;
+                Rivit.add(rivi);
+//                nro++;
             }
         }
-        System.out.println("täysien rivien lista");
+
         return Rivit;
         
     }

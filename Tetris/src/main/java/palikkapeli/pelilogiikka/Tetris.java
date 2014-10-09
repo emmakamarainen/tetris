@@ -207,21 +207,44 @@ public class Tetris extends Timer implements ActionListener {
     public void poistaTaydetRivit() {
         ArrayList<Integer> rivinrot = new ArrayList<>();
         if (!lauta.taysienRivienLista().isEmpty()) {
-            System.out.println("plaa");
             for (int rivi : lauta.taysienRivienLista()) {
-                for (int i = pysahtyneet.size() - 1; i > 0; i--) {
-                    if (pysahtyneet.get(i).getY() == rivi) {
-                        rivinrot.add(rivi);
-//                        lauta.poistaPalaRuudusta(pysahtyneet.get(i).getX(), pysahtyneet.get(i).getY());
-                        poistaPysahtynytPala(pysahtyneet.get(i));
-                    }
-                }
+                poistaRivi(rivi);
+                lauta.poistaRivi(rivi);
+                rivinrot.add(rivi);
             }
-            lauta.poistaTaydetRivit();
             for (int i : rivinrot) {
                 yksiRiviAlaspain(i);
             }
+            asetaPalatLaudalle();
             paivitettava.paivita();
+        }
+    }
+    
+    /**
+     * Etsii pysähtyneistä paloista oikealla korkuudella olevat palat ja lisää ne listaan.
+     * 
+     * @param Y annetaan poistettavien palojen y-koordinaatti
+     * @return palauttaa listan poistettavista paloista
+     */
+
+    public ArrayList<Pala> etsiPoistettavatPalat(int Y) {
+        ArrayList<Pala> lista = new ArrayList<>();
+        for (Pala pala : pysahtyneet) {
+            if (pala.getY() == Y) {
+                lista.add(pala);
+            }
+        }
+        return lista;
+    }
+
+    /**
+     * Poistaa y-koordinaatin mukaan yhden rivin pysahtyneistä paloista. 
+     *
+     * @param Y haluttu rivi(korkeus)
+     */
+    public void poistaRivi(int Y) {
+        for (Pala pala : etsiPoistettavatPalat(Y)) {
+            pysahtyneet.remove(pala);
         }
     }
 
