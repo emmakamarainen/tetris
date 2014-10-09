@@ -15,13 +15,27 @@ public class Palikka {
     }
 
     /**
-     * Metodi lisää palikoita Palikan palalistaan
+     * Metodi lisää parametrina annetun palan Palikan palalistaan
      *
      * @param pala pala, joka lisätään
      */
     public void lisaaPala(Pala pala) {
         this.palat.add(pala);
     }
+    
+//    /**
+//     * Metodi poistaa parametrina annetun palan palikasta.
+//     * @param pala 
+//     */
+//    public void poistaPala(Pala p){
+//        System.out.println(palat.size());
+//       for (int i = 0; i < 4; i++) {
+//           if (palat.get(i).GetX()==p.GetX() && palat.get(i).GetY()==p.GetY()){
+//              palat.remove(i);
+//           }
+//       }
+//        
+//    }
 
     /**
      * Palojen luontimetodi, palat eivät ole lopullisilla paikoillaan.
@@ -34,31 +48,33 @@ public class Palikka {
             lisaaPala(pala);
         }
     }
+    
+    
 
     public ArrayList<Pala> getPalat() {
         return this.palat;
     }
 
     public Color GetVari() {
-        return palat.get(0).GetVari();
+        return palat.get(0).getVari();
     }
 
     public void SetKoordinaatit(int[][] koordinaatit) {
         for (int i = 0; i < 4; i++) {
-            palat.get(i).SetXY(koordinaatit[i][0], koordinaatit[i][1]);
+            palat.get(i).setXY(koordinaatit[i][0], koordinaatit[i][1]);
         }
     }
 
     public void SetVari(Color vari) {
         for (Pala pala : palat) {
-            pala.SetVari(vari);
+            pala.setVari(vari);
         }
     }
 
     public boolean osuuPalikkaan(Palikka palikka) {
         for (Pala pala : palikka.getPalat()) {
             for (int i = 0; i < palat.size(); i++) {
-                if (pala.PalaOsuu(palat.get(i))) {
+                if (pala.palaOsuu(palat.get(i))) {
                     return true;
                 }
             }

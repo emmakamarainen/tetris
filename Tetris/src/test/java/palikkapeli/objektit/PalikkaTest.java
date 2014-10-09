@@ -52,7 +52,7 @@ public class PalikkaTest {
         palikka.luoPalikanPalat();
         Color vari = Color.GREEN;
         for (Pala pala:palikka.getPalat()){
-            pala.SetVari(vari);
+            pala.setVari(vari);
         }
         assertEquals(vari, palikka.GetVari());
     }

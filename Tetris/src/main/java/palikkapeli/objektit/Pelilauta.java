@@ -24,6 +24,11 @@ public class Pelilauta {
         }
     }
 
+    public void poistaPalaRuudusta(int x, int y) {
+        lauta[x][y] = 0;
+        System.out.println("poistapalaruudusta");
+    }
+
     /**
      * Jos meinaa asettaa palan laudan ulkopuolelle niin siinä onkin jo pala!
      * Testaa onko ruudussa pala.
@@ -65,7 +70,9 @@ public class Pelilauta {
                 nro++;
             }
         }
+        System.out.println("täysien rivien lista");
         return Rivit;
+        
     }
 
     /**
@@ -78,7 +85,7 @@ public class Pelilauta {
             return;
         }
         for (int alkionro = 0; alkionro < 10; alkionro++) {
-            lauta[rivinro][alkionro] = 0;
+            lauta[alkionro][rivinro] = 0;
         }
         lisaaRivi();
     }
@@ -92,6 +99,7 @@ public class Pelilauta {
                 poistaRivi(rivi);
                 lisaaRivi();
             }
+            taysienRivienLista().clear();
         }
     }
 

@@ -11,7 +11,7 @@ public class Tetromino {
 
     public Tetromino() {
         koordinaatit = new int[][][]{
-            {{6, 0}, {5, 0}, {3, 0}, {4, 0}}, // I
+            {{5, 0}, {6, 0}, {3, 0}, {4, 0}}, // I
             {{5, 0}, {6, 0}, {6, 1}, {4, 0}}, // J
             {{5, 0}, {6, 0}, {4, 1}, {4, 0}}, // L
             {{5, 0}, {4, 1}, {5, 1}, {4, 0}}, // O
@@ -19,7 +19,7 @@ public class Tetromino {
             {{5, 0}, {6, 0}, {5, 1}, {4, 0}}, // T
             {{5, 0}, {5, 1}, {6, 1}, {4, 0}} // Z
             
-//            {{1, 0}, {0, 0}, {-2, 0}, {-1, 0}}, // I
+//            {{0, 0}, {1, 0}, {-2, 0}, {-1, 0}}, // I
 //            {{0, 0}, {1, 0}, {1, 1}, {-1, 0}}, // J
 //            {{0, 0}, {1, 0}, {-1, 1}, {-1, 0}}, // L
 //            {{0, 0}, {-1, 1}, {0, 1}, {-1, 0}}, // O
@@ -45,8 +45,8 @@ public class Tetromino {
         for (int j = 0; j < koordinaatit[i].length; j++) {
             Pala pala = palikka.getPalat().get(j);
 //            System.out.println("ennen" +pala);
-            pala.SetXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
-            pala.SetVari(varit[i]);
+            pala.setXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
+            pala.setVari(varit[i]);
 //            System.out.println("jälkeen" +pala);
         }
         return palikka;
@@ -63,8 +63,8 @@ public class Tetromino {
         palikka.luoPalikanPalat();
         for (int j = 0; j < koordinaatit[i].length; j++) {
             Pala pala = palikka.getPalat().get(j);
-            pala.SetXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
-            pala.SetVari(varit[i]);
+            pala.setXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
+            pala.setVari(varit[i]);
         }
         return palikka;
     }

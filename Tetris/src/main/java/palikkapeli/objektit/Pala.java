@@ -21,24 +21,24 @@ public class Pala implements Comparable<Pala>{
      * @param dx    asetettava uusi x-arvo
      * @param dy    asetettava uusi y-arvo
      */
-    public void SetXY(int dx, int dy) {
+    public void setXY(int dx, int dy) {
         this.x = dx;
         this.y = dy;
     }
 
-    public void SetVari(Color vari) {
+    public void setVari(Color vari) {
         this.vari = vari;
     }
 
-    public Color GetVari() {
+    public Color getVari() {
         return this.vari;
     }
 
-    public int GetX() {
+    public int getX() {
         return x;
     }
 
-    public int GetY() {
+    public int getY() {
         return y;
     }
     
@@ -56,8 +56,8 @@ public class Pala implements Comparable<Pala>{
      * @param pala  Pala, minkä osumista testataan
      * @return
      */
-    public boolean PalaOsuu(Pala pala) {
-        if (this.x == pala.GetX() && this.y == pala.GetY()) {         
+    public boolean palaOsuu(Pala pala) {
+        if (this.x == pala.getX() && this.y == pala.getY()) {         
                 return true;           
         }
         return false;
