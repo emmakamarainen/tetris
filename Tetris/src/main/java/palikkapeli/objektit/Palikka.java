@@ -22,7 +22,7 @@ public class Palikka {
     public void lisaaPala(Pala pala) {
         this.palat.add(pala);
     }
-    
+
 //    /**
 //     * Metodi poistaa parametrina annetun palan palikasta.
 //     * @param pala 
@@ -36,7 +36,6 @@ public class Palikka {
 //       }
 //        
 //    }
-
     /**
      * Palojen luontimetodi, palat eivät ole lopullisilla paikoillaan.
      *
@@ -48,8 +47,6 @@ public class Palikka {
             lisaaPala(pala);
         }
     }
-    
-    
 
     public ArrayList<Pala> getPalat() {
         return this.palat;
@@ -57,28 +54,5 @@ public class Palikka {
 
     public Color GetVari() {
         return palat.get(0).getVari();
-    }
-
-    public void SetKoordinaatit(int[][] koordinaatit) {
-        for (int i = 0; i < 4; i++) {
-            palat.get(i).setXY(koordinaatit[i][0], koordinaatit[i][1]);
-        }
-    }
-
-    public void SetVari(Color vari) {
-        for (Pala pala : palat) {
-            pala.setVari(vari);
-        }
-    }
-
-    public boolean osuuPalikkaan(Palikka palikka) {
-        for (Pala pala : palikka.getPalat()) {
-            for (int i = 0; i < palat.size(); i++) {
-                if (pala.palaOsuu(palat.get(i))) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }

@@ -2,7 +2,7 @@ package palikkapeli.objektit;
 
 import java.awt.Color;
 
-public class Pala implements Comparable<Pala>{
+public class Pala{
 
     private final int pituus = 30;
     private final int leveys = 30;
@@ -66,10 +66,5 @@ public class Pala implements Comparable<Pala>{
     @Override
     public String toString() {
         return "(" + this.x + "," + this.y + ")";
-    }
-
-    @Override
-    public int compareTo(Pala pala) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    }  
 }

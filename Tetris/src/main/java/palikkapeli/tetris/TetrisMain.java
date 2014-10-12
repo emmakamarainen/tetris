@@ -2,6 +2,8 @@ package palikkapeli.tetris;
 
 import javax.swing.SwingUtilities;
 import palikkapeli.grafiikka.Kayttoliittyma;
+import palikkapeli.objektit.Pala;
+import palikkapeli.objektit.Palikka;
 import palikkapeli.pelilogiikka.Tetris;
 
 public class TetrisMain {
@@ -19,7 +21,7 @@ public class TetrisMain {
         }
         tetris.setPaivitettava(kayttis.getPaivitettava());
         tetris.kaynnista();
-        
-        
+
+       
     }
 }

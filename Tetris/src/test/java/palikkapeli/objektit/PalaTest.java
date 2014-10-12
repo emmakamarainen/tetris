@@ -63,4 +63,9 @@ public class PalaTest {
     public void OikeaLeveys() {
         assertEquals(30, pala.getLeveys());
     }
+    
+    @Test
+    public void OikeaTulostus() {
+        assertEquals(pala.toString(), "(5,5)");
+    }
 }

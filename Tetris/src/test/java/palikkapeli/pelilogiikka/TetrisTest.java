@@ -84,6 +84,30 @@ public class TetrisTest {
     }
 
     @Test
+    public void EiKaannyJosVasemmassaReunassa() {
+        int i = 0;
+        for (Pala pala : palikka.getPalat()) {
+            pala.setXY(i, i);
+            i++;
+        }
+        int x = palikka.getPalat().get(2).getX();
+        tetris.kaanna();
+        assertEquals(x, palikka.getPalat().get(2).getX());
+    }
+
+    @Test
+    public void EiKaannyJosOikeassaReunassa() {
+        int i = 6;
+        for (Pala pala : palikka.getPalat()) {
+            pala.setXY(i, i);
+            i++;
+        }
+        int x = palikka.getPalat().get(2).getX();
+        tetris.kaanna();
+        assertEquals(x, palikka.getPalat().get(2).getX());
+    }
+
+    @Test
     public void EiLiikuPalanPaalle() {
         Palikka palikka2 = new Palikka();
         palikka2.luoPalikanPalat();
@@ -109,19 +133,49 @@ public class TetrisTest {
         tetris.liikkuvastaPalikastaPysahtynyt();
         assertEquals(8, tetris.getPysahtyneet().size());
     }
-    
+
     @Test
-    public void GetLiikkuvaPalikkaPalauttaaOikein(){
+    public void GetLiikkuvaPalikkaPalauttaaOikein() {
         Palikka palikka2 = new Palikka();
         tetris.setLiikkuvaPalikka(palikka2);
-        assertEquals(palikka2, tetris.getLiikkuvaPalikka());
+        assertEquals(palikka2, tetris.getLiikkuva());
     }
-    
+
     @Test
-    public void LopetaLopettaaPelin(){
+    public void LopetaLopettaaPelin() {
         tetris.lopeta();
         assertEquals(true, tetris.getPeliloppu());
     }
+
+    @Test
+    public void PoistaaPysahtyneenPalanJosPalaListalla() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        System.out.println(tetris.getPysahtyneet().size());
+        Pala pala = tetris.getPysahtyneet().get(0);
+        tetris.poistaPysahtynytPala(pala);
+        assertEquals(3, tetris.getPysahtyneet().size());
+    }
+
+    @Test
+    public void NopeusKasvaaOikein() {
+        tetris.kasvataNopeutta();
+        assertEquals(750, tetris.getNopeus());
+    }
+
+    @Test
+    public void LiikuttaaRivejaAlaspain() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        Pala pala = tetris.getPysahtyneet().get(0);
+        int y = pala.getY();
+        tetris.yksiRiviAlaspain(y + 1);
+        assertEquals(y + 1, tetris.getPysahtyneet().get(0).getY());
+    }
     
-    
+    @Test
+    public void etsiPoistettavatPalatLoytaa() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        Pala pala = tetris.getPysahtyneet().get(0);
+        int y = pala.getY();
+        assertEquals(1, tetris.etsiPoistettavatPalat(y).size());
+    }
 }

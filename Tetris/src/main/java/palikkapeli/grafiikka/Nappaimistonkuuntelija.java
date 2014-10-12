@@ -4,14 +4,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import palikkapeli.pelilogiikka.Tetris;
 
-
 public class Nappaimistonkuuntelija implements KeyListener {
+
     private Tetris tetris;
     private Paivitettava paivitettava;
 
     Nappaimistonkuuntelija(Tetris tetris, Paivitettava paivitettava) {
-        this.tetris=tetris;
-        this.paivitettava=paivitettava;
+        this.tetris = tetris;
+        this.paivitettava = paivitettava;
     }
 
     @Override
@@ -24,9 +24,14 @@ public class Nappaimistonkuuntelija implements KeyListener {
             tetris.liikuVasemmalle();
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             tetris.liikuOikealle();
-        } else if (e.getKeyCode() == KeyEvent.VK_UP){
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             tetris.kaanna();
-        }               
+        } 
+//        else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+//            if (tetris.getPeliloppu()) {
+//                tetris.aloitaAlusta();
+//            }
+//        }
         paivitettava.paivita();
     }
 

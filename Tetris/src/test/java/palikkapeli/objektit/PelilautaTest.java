@@ -47,25 +47,25 @@ public class PelilautaTest {
         pelilauta.asetaPalaRuutuun(-1, 2);
         assertEquals(true, pelilauta.onkoRuudussaPala(-1, 2));
     }
-    
+
     @Test
     public void eiLisaaPalaaRuudunUlkopuolelleXOn10() {
         pelilauta.asetaPalaRuutuun(10, 2);
         assertEquals(true, pelilauta.onkoRuudussaPala(10, 2));
     }
-    
+
     @Test
     public void eiLisaaPalaaRuudunUlkopuolelleYOn20() {
         pelilauta.asetaPalaRuutuun(5, 20);
         assertEquals(true, pelilauta.onkoRuudussaPala(5, 20));
     }
-    
+
     @Test
     public void eiLisaaPalaaRuudunUlkopuolelleYOnPienempiKuin0() {
         pelilauta.asetaPalaRuutuun(5, -1);
         assertEquals(true, pelilauta.onkoRuudussaPala(5, -1));
     }
-    
+
     @Test
     public void josLaudallaTaysiRiviLisaaSenListaan() {
         for (int i = 0; i <= 10; i++) {
@@ -84,13 +84,13 @@ public class PelilautaTest {
         pelilauta.lisaaRivi();
         assertEquals(2, pelilauta.GetRivit());
     }
-    
+
     @Test
     public void riviLisaantyyKunRiviPoistetaan() {
         for (int i = 0; i < 10; i++) {
             pelilauta.asetaPalaRuutuun(i, 1);
         }
-        pelilauta.poistaRivi(1);        
+        pelilauta.poistaRivi(1);
         assertEquals(1, pelilauta.GetRivit());
     }
 
@@ -108,5 +108,15 @@ public class PelilautaTest {
             pelilauta.lisaaRivi();
         }
         assertEquals(10, pelilauta.GetRivit());
+    }
+
+    @Test
+    public void nollaaLautaNollaaKaiken() {
+        pelilauta.nollaaLauta();
+        for (int rivi = 0; rivi < 20; rivi++) {
+            for (int sarake = 0; sarake < 10; sarake++) {
+                assertEquals(0, pelilauta.GetLauta()[sarake][rivi]);
+            }
+        }
     }
 }

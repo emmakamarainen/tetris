@@ -27,7 +27,7 @@ public class Tetromino {
 //            {{0, 0}, {1, 0}, {0, 1}, {-1, 0}}, // T
 //            {{0, 0}, {0, 1}, {1, 1}, {-1, 0}} // Z
         };
-        varit = new Color[]{Color.GREEN, Color.RED, Color.PINK, Color.YELLOW, Color.BLUE, Color.CYAN, Color.DARK_GRAY};
+        varit = new Color[]{Color.GREEN, Color.RED, Color.ORANGE, Color.YELLOW, Color.BLUE, Color.CYAN, Color.DARK_GRAY};
         random = new Random();
     }
 

@@ -18,16 +18,18 @@ public class Tetris extends Timer implements ActionListener {
     private Pelilauta lauta;
     private boolean palaliikkuu;
     private boolean peliloppu;
+    private int nopeus;
 
     public Tetris() {
-        super(200, null);
+        super(800, null);
         this.pysahtyneet = new ArrayList<>();
         this.liikkuva = new Palikka();
         this.lauta = new Pelilauta();
         this.palaliikkuu = false;
         this.peliloppu = false;
+        this.nopeus = 800;
         addActionListener(this);
-        setInitialDelay(200);
+        setInitialDelay(800);
     }
 
     /**
@@ -36,7 +38,7 @@ public class Tetris extends Timer implements ActionListener {
     public void kaynnista() {
         this.start();
         while (!peliloppu) {
-
+//            System.out.println("kaynnista");
             osuuYlareunaan();
             uusiTetromino();
             poistaTaydetRivit();
@@ -108,21 +110,23 @@ public class Tetris extends Timer implements ActionListener {
      * myötäpäivään.
      */
     public void kaanna() {
-        for (Pala pala : liikkuva.getPalat()) {
-            int x = liikkuva.getPalat().get(0).getX();
-            int y = liikkuva.getPalat().get(0).getY();
-            int uusix = (pala.getY() - y) + x;
-            int uusiy = ((pala.getX() - x) * (-1)) + y;
-            if (lauta.onkoRuudussaPala(uusix, uusiy)) {
-                return;
+        if (!liikkuva.getPalat().isEmpty()) {
+            for (Pala pala : liikkuva.getPalat()) {
+                int x = liikkuva.getPalat().get(0).getX();
+                int y = liikkuva.getPalat().get(0).getY();
+                int uusix = (pala.getY() - y) + x;
+                int uusiy = ((pala.getX() - x) * (-1)) + y;
+                if (lauta.onkoRuudussaPala(uusix, uusiy)) {
+                    return;
+                }
             }
-        }
-        for (Pala pala : liikkuva.getPalat()) {
-            int x = liikkuva.getPalat().get(0).getX();
-            int y = liikkuva.getPalat().get(0).getY();
-            int uusix = (pala.getY() - y) + x;
-            int uusiy = ((pala.getX() - x) * (-1)) + y;
-            pala.setXY(uusix, uusiy);
+            for (Pala pala : liikkuva.getPalat()) {
+                int x = liikkuva.getPalat().get(0).getX();
+                int y = liikkuva.getPalat().get(0).getY();
+                int uusix = (pala.getY() - y) + x;
+                int uusiy = ((pala.getX() - x) * (-1)) + y;
+                pala.setXY(uusix, uusiy);
+            }
         }
     }
 
@@ -130,13 +134,15 @@ public class Tetris extends Timer implements ActionListener {
      * Liikuttaa tetrominoa oikealle.
      */
     public void liikuOikealle() {
-        for (Pala pala : liikkuva.getPalat()) {
-            if (lauta.onkoRuudussaPala(pala.getX() + 1, pala.getY())) {
-                return;
+        if (!liikkuva.getPalat().isEmpty()) {
+            for (Pala pala : liikkuva.getPalat()) {
+                if (lauta.onkoRuudussaPala(pala.getX() + 1, pala.getY())) {
+                    return;
+                }
             }
-        }
-        for (Pala pala : liikkuva.getPalat()) {
-            pala.setXY(pala.getX() + 1, pala.getY());
+            for (Pala pala : liikkuva.getPalat()) {
+                pala.setXY(pala.getX() + 1, pala.getY());
+            }
         }
     }
 
@@ -144,46 +150,43 @@ public class Tetris extends Timer implements ActionListener {
      * Liikuttaa tetrominoa vasemmalle.
      */
     public void liikuVasemmalle() {
-        for (Pala pala : liikkuva.getPalat()) {
-            if (lauta.onkoRuudussaPala(pala.getX() - 1, pala.getY())) {
-                return;
+        if (!liikkuva.getPalat().isEmpty()) {
+            for (Pala pala : liikkuva.getPalat()) {
+                if (lauta.onkoRuudussaPala(pala.getX() - 1, pala.getY())) {
+                    return;
+                }
+            }
+            for (Pala pala : liikkuva.getPalat()) {
+                pala.setXY(pala.getX() - 1, pala.getY());
             }
         }
-        for (Pala pala : liikkuva.getPalat()) {
-            pala.setXY(pala.getX() - 1, pala.getY());
-        }
-    }
-
-    public void setPaivitettava(Paivitettava paivitettava) {
-        this.paivitettava = paivitettava;
-    }
-
-    public Paivitettava getPaivitettava() {
-        return paivitettava;
-    }
-
-    public ArrayList<Pala> getPysahtyneet() {
-        return pysahtyneet;
-    }
-
-    public Palikka getLiikkuvaPalikka() {
-        return liikkuva;
     }
 
     /**
      * Lopettaa pelin.
      */
     public void lopeta() {
-        peliloppu = true;
+        this.peliloppu = true;
         stop();
+    }
+
+    public void aloitaAlusta() {
+        System.out.println("Öö");
+        this.peliloppu = false;
+        this.liikkuva.getPalat().clear();
+        this.pysahtyneet.clear();
+        this.lauta.nollaaLauta();
+
+        System.out.println("hmm");
+        kaynnista();
     }
 
     /**
      * Tarkistaa, meneekö tetromino yläreunan yli.
      */
     public void osuuYlareunaan() {
-        for (Pala pala : liikkuva.getPalat()) {
-            if (lauta.onkoRuudussaPala(pala.getX(), pala.getY())) {
+        for (int i = 0; i < liikkuva.getPalat().size(); i++) {
+            if (lauta.onkoRuudussaPala(liikkuva.getPalat().get(i).getX(), liikkuva.getPalat().get(i).getY())) {
                 lopeta();
             }
         }
@@ -194,8 +197,10 @@ public class Tetris extends Timer implements ActionListener {
      * @param p
      */
     public void poistaPysahtynytPala(Pala p) {
-        for (int i = pysahtyneet.size() - 1; i > 0; i--) {
+        System.out.println("geu");
+        for (int i = pysahtyneet.size() - 1; i >= 0; i--) {
             if (p.getX() == pysahtyneet.get(i).getX() && p.getY() == pysahtyneet.get(i).getY()) {
+                System.out.println("mää");
                 pysahtyneet.remove(pysahtyneet.get(i));
             }
         }
@@ -216,17 +221,18 @@ public class Tetris extends Timer implements ActionListener {
                 yksiRiviAlaspain(i);
             }
             asetaPalatLaudalle();
+            kasvataNopeutta();
             paivitettava.paivita();
         }
     }
-    
+
     /**
-     * Etsii pysähtyneistä paloista oikealla korkuudella olevat palat ja lisää ne listaan.
-     * 
+     * Etsii pysähtyneistä paloista oikealla korkuudella olevat palat ja lisää
+     * ne listaan.
+     *
      * @param Y annetaan poistettavien palojen y-koordinaatti
      * @return palauttaa listan poistettavista paloista
      */
-
     public ArrayList<Pala> etsiPoistettavatPalat(int Y) {
         ArrayList<Pala> lista = new ArrayList<>();
         for (Pala pala : pysahtyneet) {
@@ -238,7 +244,7 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     /**
-     * Poistaa y-koordinaatin mukaan yhden rivin pysahtyneistä paloista. 
+     * Poistaa y-koordinaatin mukaan yhden rivin pysahtyneistä paloista.
      *
      * @param Y haluttu rivi(korkeus)
      */
@@ -255,11 +261,43 @@ public class Tetris extends Timer implements ActionListener {
      * @param rivinro
      */
     public void yksiRiviAlaspain(int rivinro) {
-        for (Pala pala : pysahtyneet) {
-            if (pala.getY() < rivinro) {
-                pala.setXY(pala.getX(), pala.getY() + 1);
+        if (rivinro > 0 || rivinro < 20) {
+            for (Pala pala : pysahtyneet) {
+                if (pala.getY() < rivinro) {
+                    pala.setXY(pala.getX(), pala.getY() + 1);
+                }
             }
         }
+    }
+
+    /**
+     * Kasvattaa tetrominojen putoamisnopeutta.
+     */
+    public void kasvataNopeutta() {
+        if (this.nopeus >= 150) {
+            this.nopeus -= 50;
+            setDelay(this.nopeus);
+        }
+    }
+
+    public int getNopeus() {
+        return nopeus;
+    }
+
+    public void setPaivitettava(Paivitettava paivitettava) {
+        this.paivitettava = paivitettava;
+    }
+
+    public Paivitettava getPaivitettava() {
+        return paivitettava;
+    }
+
+    public ArrayList<Pala> getPysahtyneet() {
+        return pysahtyneet;
+    }
+
+    public Palikka getLiikkuva() {
+        return liikkuva;
     }
 
     public boolean getPeliloppu() {

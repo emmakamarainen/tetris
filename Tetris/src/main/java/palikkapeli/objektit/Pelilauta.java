@@ -113,6 +113,10 @@ public class Pelilauta {
     public int GetRivit() {
         return poistetutRivit;
     }
+    
+    public int[][] GetLauta() {
+        return lauta;
+    }
 
     /**
      * Laittaa poistettujen rivien luvun nollaksi.

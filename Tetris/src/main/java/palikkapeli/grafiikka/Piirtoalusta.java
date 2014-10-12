@@ -33,6 +33,8 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             g.setColor(Color.WHITE);
             g.setFont(loppufontti);
             g.drawString("GAME OVER", 150, 300);
+//            g.setFont(fontti);
+//            g.drawString("paina SPACE aloittaaksesi uuden pelin", 150, 350);
         } else if (!tetris.getPeliloppu()) {
 
             if (!tetris.getPysahtyneet().isEmpty()) {
@@ -47,7 +49,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             }
 
             if (!tetris.getPeliloppu()) {
-                for (Pala pala : tetris.getLiikkuvaPalikka().getPalat()) {
+                for (Pala pala : tetris.getLiikkuva().getPalat()) {
 //            System.out.println("Liikkuva pala");
                     g.setColor(pala.getVari());
                     g.fillRect(pala.getX() * 30 + 50, pala.getY() * 30 + 50, 30, 30);
