@@ -23,3 +23,4 @@
 | 6.10. | 1 h | Palikkabugin korjausyritys |
 | 7.10. | 2 h | Palikkabugin korjausyritys & testeja lisaa |
 | 9.10. | 5 h | Palikat kaantyvat, yritys saada taysi rivi haviamaan |
+| 12.10. | 4 h | Nopeuttaminen tehty, lisaa testeja, siivoilua |
