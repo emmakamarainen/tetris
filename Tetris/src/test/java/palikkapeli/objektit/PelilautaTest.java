@@ -43,6 +43,26 @@ public class PelilautaTest {
     }
 
     @Test
+    public void onkoRuudussaPalaAariarvotPt1() {
+        assertEquals(true, pelilauta.onkoRuudussaPala(10, 2));
+    }
+
+    @Test
+    public void onkoRuudussaPalaAariarvotPt2() {
+        assertEquals(false, pelilauta.onkoRuudussaPala(0, 2));
+    }
+
+    @Test
+    public void onkoRuudussaPalaAariarvotPt3() {
+        assertEquals(true, pelilauta.onkoRuudussaPala(2, 20));
+    }
+
+    @Test
+    public void onkoRuudussaPalaAariarvotPt4() {
+        assertEquals(false, pelilauta.onkoRuudussaPala(2, 0));
+    }
+
+    @Test
     public void eiLisaaPalaaRuudunUlkopuolellexPienempiKuin0() {
         pelilauta.asetaPalaRuutuun(-1, 2);
         assertEquals(true, pelilauta.onkoRuudussaPala(-1, 2));
@@ -118,5 +138,16 @@ public class PelilautaTest {
                 assertEquals(0, pelilauta.GetLauta()[sarake][rivi]);
             }
         }
+    }
+
+    @Test
+    public void poistaTaydetRivitLisaaPisteita() {
+        for (int y = 0; y < 1; y++) {
+            for (int x = 0; x < 11; x++) {
+                pelilauta.asetaPalaRuutuun(x, y);
+            }
+        }
+        pelilauta.poistaTaydetRivit();
+        assertEquals(2, pelilauta.GetRivit());
     }
 }

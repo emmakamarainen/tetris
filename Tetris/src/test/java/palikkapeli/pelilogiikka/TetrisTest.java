@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import palikkapeli.grafiikka.Paivitettava;
 import palikkapeli.objektit.Pala;
 import palikkapeli.objektit.Palikka;
 
@@ -108,6 +109,26 @@ public class TetrisTest {
     }
 
     @Test
+    public void kaantyyOikeinX() {
+        Pala palaensin = tetris.getLiikkuva().getPalat().get(0);
+        int x = palaensin.getX();
+        int y = palaensin.getY();
+        tetris.kaanna();
+        Pala palajalkeen = tetris.getLiikkuva().getPalat().get(0);
+        assertEquals((palaensin.getY() - y) + x, palajalkeen.getX());
+    }
+
+    @Test
+    public void kaantyyOikeinY() {
+        Pala palaensin = tetris.getLiikkuva().getPalat().get(0);
+        int x = palaensin.getX();
+        int y = palaensin.getY();
+        tetris.kaanna();
+        Pala palajalkeen = tetris.getLiikkuva().getPalat().get(0);
+        assertEquals((((palaensin.getX() - x) * (-1)) + y), palajalkeen.getY());
+    }
+
+    @Test
     public void EiLiikuPalanPaalle() {
         Palikka palikka2 = new Palikka();
         palikka2.luoPalikanPalat();
@@ -158,8 +179,23 @@ public class TetrisTest {
 
     @Test
     public void NopeusKasvaaOikein() {
+        int nopeus = tetris.getNopeus();
         tetris.kasvataNopeutta();
-        assertEquals(750, tetris.getNopeus());
+        assertEquals(nopeus-50, tetris.getNopeus());
+    }
+
+    @Test
+    public void NopeusEiKasva150Jalkeen() {       
+        tetris.setNopeus(149);
+        tetris.kasvataNopeutta();
+        assertEquals(149, tetris.getNopeus());
+    }
+
+    @Test
+    public void NopeusKasvaaKun150() {       
+        tetris.setNopeus(150);
+        tetris.kasvataNopeutta();
+        assertEquals(100, tetris.getNopeus());
     }
 
     @Test
@@ -170,7 +206,25 @@ public class TetrisTest {
         tetris.yksiRiviAlaspain(y + 1);
         assertEquals(y + 1, tetris.getPysahtyneet().get(0).getY());
     }
-    
+
+    @Test
+    public void EiLiikutaRivejaAlaspainKunYOn20() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        Pala pala = tetris.getPysahtyneet().get(0);
+        pala.setXY(pala.getX(), 20);
+        tetris.yksiRiviAlaspain(20);
+        assertEquals(20, tetris.getPysahtyneet().get(0).getY());
+    }
+
+    @Test
+    public void EiLiikutaRivejaAlaspainKunYOn0() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        Pala pala = tetris.getPysahtyneet().get(0);
+        pala.setXY(pala.getX(), 0);
+        tetris.yksiRiviAlaspain(0);
+        assertEquals(0, tetris.getPysahtyneet().get(0).getY());
+    }
+
     @Test
     public void etsiPoistettavatPalatLoytaa() {
         tetris.liikkuvastaPalikastaPysahtynyt();
@@ -178,4 +232,29 @@ public class TetrisTest {
         int y = pala.getY();
         assertEquals(1, tetris.etsiPoistettavatPalat(y).size());
     }
+
+    @Test
+    public void oikeaPaivitettava() {
+        Paivitettava p = new Paivitettava() {
+            @Override
+            public void paivita() {
+                throw new UnsupportedOperationException("asd");
+            }
+        };
+        tetris.setPaivitettava(p);
+        assertEquals(p, tetris.getPaivitettava());
+    }
+
+    @Test
+    public void lopetaPysayttaaPelin() {
+        tetris.lopeta();
+        assertFalse(tetris.isRunning());
+    }
+
+    @Test
+    public void pisteetSadallaJaollisia() {
+        assertEquals(0, tetris.getPisteet() % 100);
+    }
+
+//    
 }

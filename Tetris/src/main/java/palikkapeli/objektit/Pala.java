@@ -2,7 +2,12 @@ package palikkapeli.objektit;
 
 import java.awt.Color;
 
-public class Pala{
+/**
+ * Yksittäisen palan luokka, paloista muodostetaan tetrominoja.
+ *
+ * @author Emma
+ */
+public class Pala {
 
     private final int pituus = 30;
     private final int leveys = 30;
@@ -18,8 +23,8 @@ public class Pala{
     /**
      * Laittaa palalle tietyt x- ja y- koordinaatit.
      *
-     * @param dx    asetettava uusi x-arvo
-     * @param dy    asetettava uusi y-arvo
+     * @param dx asetettava uusi x-arvo
+     * @param dy asetettava uusi y-arvo
      */
     public void setXY(int dx, int dy) {
         this.x = dx;
@@ -41,24 +46,24 @@ public class Pala{
     public int getY() {
         return y;
     }
-    
-    public int getPituus(){
+
+    public int getPituus() {
         return this.pituus;
     }
-    
-    public int getLeveys(){
+
+    public int getLeveys() {
         return this.leveys;
     }
-    
+
     /**
      * Testaa osuuko pala toiseen palaan.
      *
-     * @param pala  Pala, minkä osumista testataan
+     * @param pala Pala, minkä osumista testataan
      * @return
      */
     public boolean palaOsuu(Pala pala) {
-        if (this.x == pala.getX() && this.y == pala.getY()) {         
-                return true;           
+        if (this.x == pala.getX() && this.y == pala.getY()) {
+            return true;
         }
         return false;
     }
@@ -66,5 +71,5 @@ public class Pala{
     @Override
     public String toString() {
         return "(" + this.x + "," + this.y + ")";
-    }  
+    }
 }

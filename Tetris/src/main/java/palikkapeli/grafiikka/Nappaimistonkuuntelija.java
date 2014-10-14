@@ -4,6 +4,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import palikkapeli.pelilogiikka.Tetris;
 
+/**
+ * Tetriksen näppäimistönkuuntelija.Pelaajan painaessa tiettyä nappia reagoi
+ * sille koodatulla tavalla.
+ *
+ * @author Emma
+ */
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Tetris tetris;
@@ -26,7 +32,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
             tetris.liikuOikealle();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             tetris.kaanna();
-        } 
+        }
 //        else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 //            if (tetris.getPeliloppu()) {
 //                tetris.aloitaAlusta();
@@ -37,6 +43,5 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-//        tetris.liikuAlas();
     }
 }

@@ -3,6 +3,12 @@ package palikkapeli.objektit;
 import java.awt.Color;
 import java.util.Random;
 
+/**
+ * Laittaa palikan paloille varsinaiset koordinaatit ja värin arpomalla
+ * koordinaattitaulukosta rivin ja lisää sitä vastaavan värin.
+ *
+ * @author Emma
+ */
 public class Tetromino {
 
     private final int[][][] koordinaatit;
@@ -18,14 +24,13 @@ public class Tetromino {
             {{5, 0}, {6, 0}, {4, 1}, {5, 1}}, // S
             {{5, 0}, {6, 0}, {5, 1}, {4, 0}}, // T
             {{5, 0}, {5, 1}, {6, 1}, {4, 0}} // Z
-            
-//            {{0, 0}, {1, 0}, {-2, 0}, {-1, 0}}, // I
-//            {{0, 0}, {1, 0}, {1, 1}, {-1, 0}}, // J
-//            {{0, 0}, {1, 0}, {-1, 1}, {-1, 0}}, // L
-//            {{0, 0}, {-1, 1}, {0, 1}, {-1, 0}}, // O
-//            {{0, 0}, {1, 0}, {-1, 1}, {0, 1}}, // S
-//            {{0, 0}, {1, 0}, {0, 1}, {-1, 0}}, // T
-//            {{0, 0}, {0, 1}, {1, 1}, {-1, 0}} // Z
+        //            {{0, 0}, {1, 0}, {-2, 0}, {-1, 0}}, // I
+        //            {{0, 0}, {1, 0}, {1, 1}, {-1, 0}}, // J
+        //            {{0, 0}, {1, 0}, {-1, 1}, {-1, 0}}, // L
+        //            {{0, 0}, {-1, 1}, {0, 1}, {-1, 0}}, // O
+        //            {{0, 0}, {1, 0}, {-1, 1}, {0, 1}}, // S
+        //            {{0, 0}, {1, 0}, {0, 1}, {-1, 0}}, // T
+        //            {{0, 0}, {0, 1}, {1, 1}, {-1, 0}} // Z
         };
         varit = new Color[]{Color.GREEN, Color.RED, Color.ORANGE, Color.YELLOW, Color.BLUE, Color.CYAN, Color.DARK_GRAY};
         random = new Random();
@@ -53,23 +58,6 @@ public class Tetromino {
     }
 
     /**
-     * Metodi järjestää Palikan palat annetun parametrin koordinaattien mukaan.  
-     * Metodi myös lisää värin palalle.
-     * @param i riviluku, jonka avulla haetaan halutut koordinaatit taulukosta
-     * @return palauttaa palikan, jolla on oikeat koordinaatit
-     */
-    public Palikka luoTetromino(int i) {
-        Palikka palikka = new Palikka();
-        palikka.luoPalikanPalat();
-        for (int j = 0; j < koordinaatit[i].length; j++) {
-            Pala pala = palikka.getPalat().get(j);
-            pala.setXY(koordinaatit[i][j][0], koordinaatit[i][j][1]);
-            pala.setVari(varit[i]);
-        }
-        return palikka;
-    }
-
-    /**
      * Arpoo numeron, jota hyödynnetään tetriminon luonnissa.
      *
      * @return palauttaa arvotun numeron väliltä 0-7
@@ -80,9 +68,5 @@ public class Tetromino {
 
     public Color getVari(int i) {
         return varit[i];
-    }
-
-    public int[][] getKoordinaatit(int i) {
-        return koordinaatit[i];
     }
 }

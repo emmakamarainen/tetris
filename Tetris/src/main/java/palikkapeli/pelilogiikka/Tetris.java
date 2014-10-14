@@ -10,6 +10,11 @@ import palikkapeli.objektit.Palikka;
 import palikkapeli.objektit.Pelilauta;
 import palikkapeli.objektit.Tetromino;
 
+/**
+ * Tetriksen pyörittämiseen tarvittavat metodit ovat tässä luokassa.
+ *
+ * @author Emma
+ */
 public class Tetris extends Timer implements ActionListener {
 
     private ArrayList<Pala> pysahtyneet;
@@ -21,15 +26,15 @@ public class Tetris extends Timer implements ActionListener {
     private int nopeus;
 
     public Tetris() {
-        super(800, null);
+        super(700, null);
         this.pysahtyneet = new ArrayList<>();
         this.liikkuva = new Palikka();
         this.lauta = new Pelilauta();
         this.palaliikkuu = false;
         this.peliloppu = false;
-        this.nopeus = 800;
+        this.nopeus = 700;
         addActionListener(this);
-        setInitialDelay(800);
+        setInitialDelay(700);
     }
 
     /**
@@ -38,7 +43,6 @@ public class Tetris extends Timer implements ActionListener {
     public void kaynnista() {
         this.start();
         while (!peliloppu) {
-//            System.out.println("kaynnista");
             osuuYlareunaan();
             uusiTetromino();
             poistaTaydetRivit();
@@ -95,13 +99,11 @@ public class Tetris extends Timer implements ActionListener {
         for (Pala pala : liikkuva.getPalat()) {
             if (lauta.onkoRuudussaPala(pala.getX(), pala.getY() + 1)) {
                 liikkuvastaPalikastaPysahtynyt();
-//                System.out.println("liikuAlas ruudussa pala");
                 return;
             }
         }
         for (Pala pala : liikkuva.getPalat()) {
             pala.setXY(pala.getX(), pala.getY() + 1);
-//            System.out.println("liikuAlas");
         }
     }
 
@@ -170,14 +172,14 @@ public class Tetris extends Timer implements ActionListener {
         stop();
     }
 
+    /**
+     * Aloittaa pelin alusta.
+     */
     public void aloitaAlusta() {
-        System.out.println("Öö");
         this.peliloppu = false;
         this.liikkuva.getPalat().clear();
         this.pysahtyneet.clear();
         this.lauta.nollaaLauta();
-
-        System.out.println("hmm");
         kaynnista();
     }
 
@@ -193,21 +195,20 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     /**
+     * Käy läpi pysähtyneiden listaa ja poistaa halutun palan.
      *
-     * @param p
+     * @param p poistettava pala
      */
     public void poistaPysahtynytPala(Pala p) {
-        System.out.println("geu");
         for (int i = pysahtyneet.size() - 1; i >= 0; i--) {
             if (p.getX() == pysahtyneet.get(i).getX() && p.getY() == pysahtyneet.get(i).getY()) {
-                System.out.println("mää");
                 pysahtyneet.remove(pysahtyneet.get(i));
             }
         }
     }
 
     /**
-     *
+     * Selvittää laudalta täydet rivit ja poistaa ne.
      */
     public void poistaTaydetRivit() {
         ArrayList<Integer> rivinrot = new ArrayList<>();
@@ -282,6 +283,10 @@ public class Tetris extends Timer implements ActionListener {
 
     public int getNopeus() {
         return nopeus;
+    }
+
+    public void setNopeus(int uusinopeus) {
+        this.nopeus = uusinopeus;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

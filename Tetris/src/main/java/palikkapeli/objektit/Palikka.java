@@ -3,11 +3,16 @@ package palikkapeli.objektit;
 import java.awt.Color;
 import java.util.ArrayList;
 
+/**
+ * Tetrikssä luotava palikka, joka koostuu paloista.
+ *
+ * Tässä luokassa luodaan lista, jossa on yhden tetrispalikan palat. Niille
+ * laitetaan oikeat koordinaatit Tetromino-luokassa.
+ *
+ * @author Emma
+ */
 public class Palikka {
 
-    /**
-     * Tässä luokassa luodaan lista, jossa on yhden tetrispalikan palat.
-     */
     private ArrayList<Pala> palat;
 
     public Palikka() {
@@ -23,19 +28,6 @@ public class Palikka {
         this.palat.add(pala);
     }
 
-//    /**
-//     * Metodi poistaa parametrina annetun palan palikasta.
-//     * @param pala 
-//     */
-//    public void poistaPala(Pala p){
-//        System.out.println(palat.size());
-//       for (int i = 0; i < 4; i++) {
-//           if (palat.get(i).GetX()==p.GetX() && palat.get(i).GetY()==p.GetY()){
-//              palat.remove(i);
-//           }
-//       }
-//        
-//    }
     /**
      * Palojen luontimetodi, palat eivät ole lopullisilla paikoillaan.
      *

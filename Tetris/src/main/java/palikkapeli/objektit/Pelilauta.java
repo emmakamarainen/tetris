@@ -2,6 +2,14 @@ package palikkapeli.objektit;
 
 import java.util.ArrayList;
 
+/**
+ * * Tetriksen pelilauta.
+ *
+ * Palat asetetaan ruutuihin, tai otetaan niistä pois. Hoitaa myös
+ * pisteidenlaskun.
+ *
+ * @author Emma
+ */
 public class Pelilauta {
 
     private int[][] lauta;
@@ -22,11 +30,6 @@ public class Pelilauta {
         if (onkoRuudussaPala(x, y) == false) {
             lauta[x][y] = 1;
         }
-    }
-
-    public void poistaPalaRuudusta(int x, int y) {
-        lauta[x][y] = 0;
-        System.out.println("poistapalaruudusta");
     }
 
     /**
@@ -56,7 +59,6 @@ public class Pelilauta {
      */
     public ArrayList<Integer> taysienRivienLista() {
         ArrayList<Integer> Rivit = new ArrayList<>();
-//        int nro = 0;
         for (int rivi = 0; rivi < 20; rivi++) {
             boolean rivitaysi = true;
             for (int sarake = 0; sarake < 10; sarake++) {
@@ -67,12 +69,11 @@ public class Pelilauta {
             }
             if (rivitaysi == true) {
                 Rivit.add(rivi);
-//                nro++;
             }
         }
 
         return Rivit;
-        
+
     }
 
     /**
@@ -113,7 +114,7 @@ public class Pelilauta {
     public int GetRivit() {
         return poistetutRivit;
     }
-    
+
     public int[][] GetLauta() {
         return lauta;
     }
@@ -125,6 +126,9 @@ public class Pelilauta {
         poistetutRivit = 0;
     }
 
+    /**
+     * Poistaa jokaisen palan laudalta.
+     */
     public void nollaaLauta() {
         for (int rivi = 0; rivi < 20; rivi++) {
             for (int sarake = 0; sarake < 10; sarake++) {

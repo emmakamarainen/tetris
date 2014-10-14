@@ -8,6 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import palikkapeli.pelilogiikka.Tetris;
 
+/**
+ * Tetriksen käyttöliittymä, luo tarvittavat osat.
+ *
+ * @author Emma
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -33,14 +38,14 @@ public class Kayttoliittyma implements Runnable {
         frame = new JFrame("Palikkapeli");
         int leveys = 600;
         int korkeus = 700;
-        frame.setPreferredSize(new Dimension(leveys,korkeus));
+        frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 //        frame.setUndecorated(true);
         luoKomponentit(frame.getContentPane());
         frame.setVisible(true);
         frame.pack();
-       
+
     }
 
     public Frame getFrame() {
