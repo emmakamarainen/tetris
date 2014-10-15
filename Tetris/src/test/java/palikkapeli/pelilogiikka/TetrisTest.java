@@ -181,18 +181,18 @@ public class TetrisTest {
     public void NopeusKasvaaOikein() {
         int nopeus = tetris.getNopeus();
         tetris.kasvataNopeutta();
-        assertEquals(nopeus-50, tetris.getNopeus());
+        assertEquals(nopeus - 50, tetris.getNopeus());
     }
 
     @Test
-    public void NopeusEiKasva150Jalkeen() {       
+    public void NopeusEiKasva150Jalkeen() {
         tetris.setNopeus(149);
         tetris.kasvataNopeutta();
         assertEquals(149, tetris.getNopeus());
     }
 
     @Test
-    public void NopeusKasvaaKun150() {       
+    public void NopeusKasvaaKun150() {
         tetris.setNopeus(150);
         tetris.kasvataNopeutta();
         assertEquals(100, tetris.getNopeus());
@@ -256,5 +256,69 @@ public class TetrisTest {
         assertEquals(0, tetris.getPisteet() % 100);
     }
 
-//    
+    @Test
+    public void uusiTetrominoPalaLiikkuuTrue() {
+        tetris.uusiTetromino();
+        assertTrue(tetris.getPalaLiikkuu());
+    }
+
+    @Test
+    public void uusiTetrominoLiikkuvaNotNull() {
+        tetris.getLiikkuva().getPalat().clear();
+        tetris.uusiTetromino();
+        assertNotNull(tetris.getLiikkuva());
+    }
+
+    @Test
+    public void uusiTetrominoLaittaaPalojaLaudalle() {
+        tetris.uusiTetromino();
+        assertTrue(tetris.getPalaLiikkuu());
+    }
+
+    @Test
+    public void asetaPalatLaudalleLaittaaLiikkuvanLaudalle() {
+        tetris.uusiTetromino();
+        int y = tetris.getLiikkuva().getPalat().get(0).getY();
+        int x = tetris.getLiikkuva().getPalat().get(0).getX();
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        tetris.asetaPalatLaudalle();
+        assertTrue(tetris.getPelilauta().onkoRuudussaPala(x, y));
+    }
+
+    @Test
+    public void pisteetOikein() {
+        tetris.kasvataPisteitä();
+        tetris.kasvataPisteitä();
+        tetris.kasvataPisteitä();
+        assertEquals(0, tetris.getPisteet() % 100);
+    }
+
+    @Test
+    public void poistaTaydetRivitEiRivejaPisteetEiKasva() {
+        int pisteet = tetris.getPisteet();
+        tetris.poistaTaydetRivit();
+        assertEquals(tetris.getPisteet(), pisteet);
+    }
+
+    @Test
+    public void poistaTaydetRivitEiRivejaPalatEiLiiku() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        int y = tetris.getPysahtyneet().get(0).getY();
+        tetris.poistaTaydetRivit();
+        assertEquals(tetris.getPysahtyneet().get(0).getY(), y);
+    }
+
+    @Test
+    public void asetaPalatLaudalleLaittaaPalojaLaudalle() {
+        boolean onpala = false;
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        tetris.asetaPalatLaudalle();
+        for (int i = 0; i < 20; i++) {
+            if (tetris.getPelilauta().onkoRuudussaPala(i, 0)) {
+                onpala = true;
+                break;
+            }
+        }
+        assertTrue(onpala);
+    }
 }

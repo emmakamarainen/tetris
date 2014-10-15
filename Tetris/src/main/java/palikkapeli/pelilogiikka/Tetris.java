@@ -106,6 +106,7 @@ public class Tetris extends Timer implements ActionListener {
             pala.setXY(pala.getX(), pala.getY() + 1);
         }
     }
+    
 
     /**
      * Muuttaa liikkuvan tetrominon palojen koordinaattia niin, että se kääntyy
@@ -309,9 +310,30 @@ public class Tetris extends Timer implements ActionListener {
         return peliloppu;
     }
 
+    public boolean getPalaLiikkuu() {
+        return palaliikkuu;
+    }
+
+    public Pelilauta getPelilauta() {
+        return lauta;
+    }
+
     public int getPisteet() {
         int pisteet = lauta.GetRivit() * 100;
         return pisteet;
+    }
+
+    /**
+     * Kasvattaa pisteitä sadalla.
+     *
+     * @return pisteet palauttaa kasvaneen pistemäärän
+     */
+    public void kasvataPisteitä() {
+        lauta.lisaaRivi();
+    }
+
+    public int[][] lauta() {
+        return lauta.GetLauta();
     }
 
     @Override

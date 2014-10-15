@@ -33,11 +33,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             tetris.kaanna();
         }
-//        else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+//            Yritys luoda replay
 //            if (tetris.getPeliloppu()) {
 //                tetris.aloitaAlusta();
-//            }
-//        }
+//            }           
+        }
         paivitettava.paivita();
     }
 

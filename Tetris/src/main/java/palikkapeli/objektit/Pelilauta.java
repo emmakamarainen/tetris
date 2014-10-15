@@ -107,8 +107,8 @@ public class Pelilauta {
     /**
      * Kasvattaa poistettujen rivien lukua, käytetään pisteidenlaskussa
      */
-    public void lisaaRivi() {
-        poistetutRivit++;
+    public int lisaaRivi() {
+        return poistetutRivit++;
     }
 
     public int GetRivit() {
@@ -137,4 +137,6 @@ public class Pelilauta {
 
         }
     }
+
+    
 }
