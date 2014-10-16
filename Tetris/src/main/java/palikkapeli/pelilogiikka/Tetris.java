@@ -106,7 +106,6 @@ public class Tetris extends Timer implements ActionListener {
             pala.setXY(pala.getX(), pala.getY() + 1);
         }
     }
-    
 
     /**
      * Muuttaa liikkuvan tetrominon palojen koordinaattia niin, että se kääntyy
@@ -117,18 +116,14 @@ public class Tetris extends Timer implements ActionListener {
             for (Pala pala : liikkuva.getPalat()) {
                 int x = liikkuva.getPalat().get(0).getX();
                 int y = liikkuva.getPalat().get(0).getY();
-                int uusix = (pala.getY() - y) + x;
-                int uusiy = ((pala.getX() - x) * (-1)) + y;
-                if (lauta.onkoRuudussaPala(uusix, uusiy)) {
+                if (lauta.onkoRuudussaPala((pala.getY() - y) + x, ((pala.getX() - x) * (-1)) + y)) {
                     return;
                 }
             }
             for (Pala pala : liikkuva.getPalat()) {
                 int x = liikkuva.getPalat().get(0).getX();
                 int y = liikkuva.getPalat().get(0).getY();
-                int uusix = (pala.getY() - y) + x;
-                int uusiy = ((pala.getX() - x) * (-1)) + y;
-                pala.setXY(uusix, uusiy);
+                pala.setXY((pala.getY() - y) + x, ((pala.getX() - x) * (-1)) + y);
             }
         }
     }
@@ -191,19 +186,6 @@ public class Tetris extends Timer implements ActionListener {
         for (int i = 0; i < liikkuva.getPalat().size(); i++) {
             if (lauta.onkoRuudussaPala(liikkuva.getPalat().get(i).getX(), liikkuva.getPalat().get(i).getY())) {
                 lopeta();
-            }
-        }
-    }
-
-    /**
-     * Käy läpi pysähtyneiden listaa ja poistaa halutun palan.
-     *
-     * @param p poistettava pala
-     */
-    public void poistaPysahtynytPala(Pala p) {
-        for (int i = pysahtyneet.size() - 1; i >= 0; i--) {
-            if (p.getX() == pysahtyneet.get(i).getX() && p.getY() == pysahtyneet.get(i).getY()) {
-                pysahtyneet.remove(pysahtyneet.get(i));
             }
         }
     }
@@ -319,8 +301,7 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     public int getPisteet() {
-        int pisteet = lauta.GetRivit() * 100;
-        return pisteet;
+        return lauta.GetRivit() * 100;
     }
 
     /**
@@ -330,10 +311,6 @@ public class Tetris extends Timer implements ActionListener {
      */
     public void kasvataPisteitä() {
         lauta.lisaaRivi();
-    }
-
-    public int[][] lauta() {
-        return lauta.GetLauta();
     }
 
     @Override

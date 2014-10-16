@@ -109,23 +109,13 @@ public class TetrisTest {
     }
 
     @Test
-    public void kaantyyOikeinX() {
-        Pala palaensin = tetris.getLiikkuva().getPalat().get(0);
-        int x = palaensin.getX();
-        int y = palaensin.getY();
+    public void kaannaXYOikein() {
+        int x = tetris.getLiikkuva().getPalat().get(0).getX();
+        int y = tetris.getLiikkuva().getPalat().get(0).getY();
         tetris.kaanna();
-        Pala palajalkeen = tetris.getLiikkuva().getPalat().get(0);
-        assertEquals((palaensin.getY() - y) + x, palajalkeen.getX());
-    }
-
-    @Test
-    public void kaantyyOikeinY() {
-        Pala palaensin = tetris.getLiikkuva().getPalat().get(0);
-        int x = palaensin.getX();
-        int y = palaensin.getY();
-        tetris.kaanna();
-        Pala palajalkeen = tetris.getLiikkuva().getPalat().get(0);
-        assertEquals((((palaensin.getX() - x) * (-1)) + y), palajalkeen.getY());
+        Pala pala = tetris.getLiikkuva().getPalat().get(0);
+        assertEquals(tetris.getLiikkuva().getPalat().get(0).getX(), (pala.getY() - y) + x);
+        assertEquals(tetris.getLiikkuva().getPalat().get(0).getY(), ((pala.getX() - x) / (-1)) + y);
     }
 
     @Test
@@ -166,15 +156,6 @@ public class TetrisTest {
     public void LopetaLopettaaPelin() {
         tetris.lopeta();
         assertEquals(true, tetris.getPeliloppu());
-    }
-
-    @Test
-    public void PoistaaPysahtyneenPalanJosPalaListalla() {
-        tetris.liikkuvastaPalikastaPysahtynyt();
-        System.out.println(tetris.getPysahtyneet().size());
-        Pala pala = tetris.getPysahtyneet().get(0);
-        tetris.poistaPysahtynytPala(pala);
-        assertEquals(3, tetris.getPysahtyneet().size());
     }
 
     @Test
@@ -320,5 +301,13 @@ public class TetrisTest {
             }
         }
         assertTrue(onpala);
+    }
+
+    @Test
+    public void osuuYlareunaanPysayttaaPelinJosPalikatMeneeYli() {
+        tetris.liikkuvastaPalikastaPysahtynyt();
+        tetris.asetaPalatLaudalle();
+        tetris.osuuYlareunaan();
+        assertEquals(true, tetris.getPeliloppu());
     }
 }
