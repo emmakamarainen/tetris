@@ -7,5 +7,5 @@ palikkapeli
 
 Ohjelmoinnin harjoitusty철, syksy 2014 
 
-Kaikesta huolimatta en saanut testausta niin hyv|-턪si kuin toivoin, 
-mutta aika ei riittanyt nyt enemp꼧n.
+Kaikesta huolimatta en saanut testausta niin hyv채ksi kuin toivoin, 
+mutta aika ei riitt채nyt nyt enemp채채n.
