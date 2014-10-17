@@ -26,3 +26,5 @@
 | 12.10. | 4 h | Nopeuttaminen tehty, lisää testejä, siivoilua |
 | 14.10. | 4 h | Javadocia lisätty, lisää testejä, räpellystä |
 | 15.10. | 4,5 h | Yritys testata lisää, ärsyttää |
+| 16.10. | 2,5 h | Yritys testata lisää, uusi sekvenssikaavio |
+| 17.10. | 4 h | Yritys testata lisää, dokumentointia, ohjelma palautuskuntoon |
