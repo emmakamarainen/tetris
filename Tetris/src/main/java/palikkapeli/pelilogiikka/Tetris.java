@@ -170,6 +170,7 @@ public class Tetris extends Timer implements ActionListener {
 
     /**
      * Aloittaa pelin alusta.
+     * Oli tarkoitus saada toimimaan, mutta ei onnistunut deadlineen mennessä.
      */
     public void aloitaAlusta() {
         this.peliloppu = false;
